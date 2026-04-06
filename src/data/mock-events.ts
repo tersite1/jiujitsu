@@ -1,0 +1,55 @@
+import { BJJEvent } from '@/types/event';
+
+export const events: BJJEvent[] = [
+  {
+    id: 'e1', title: '히카르도 데 라 히바 세미나 in 서울',
+    category: 'seminar', date: '2026-05-15', time: '14:00-17:00',
+    location: '그래플링 아카데미 강남', address: '서울 강남구 역삼동 123-45',
+    imageUrl: '/events/event1.svg',
+    instructor: '히카르도 데 라 히바', instructorTitle: '레전드 / 코랄벨트',
+    price: '150,000원', description: 'BJJ 레전드 히카르도 데 라 히바의 특별 세미나. 데라히바 가드의 모든 것을 배울 수 있는 기회입니다. 모든 벨트 수준 참가 가능.',
+    capacity: 40, registered: 35, tags: ['가드', '레전드', '전벨트'],
+  },
+  {
+    id: 'e2', title: '서울 오픈 주짓수 챔피언십 2026',
+    category: 'competition', date: '2026-06-20', time: '09:00-18:00',
+    location: '올림픽공원 체조경기장', address: '서울 송파구 올림픽로 424',
+    imageUrl: '/events/event2.svg',
+    price: '50,000원', description: '서울 최대 규모의 주짓수 대회. Gi/No-Gi 부문, 전 벨트·전 체급. 초보자 부문 별도 운영.',
+    capacity: 300, registered: 187, tags: ['Gi', 'No-Gi', '전체급', '초보자 환영'],
+  },
+  {
+    id: 'e3', title: '강남 오픈매트 데이',
+    category: 'open-mat', date: '2026-04-20', time: '13:00-16:00',
+    location: '그래플링 아카데미 강남', address: '서울 강남구 역삼동 123-45',
+    imageUrl: '/events/event3.svg',
+    price: '무료', description: '매월 셋째 주 토요일 오픈매트. 타 도장 수련자 환영. 자유 스파링 + 포지셔널 드릴.',
+    capacity: 30, registered: 18, tags: ['무료', '자유 스파링', '타도장 환영'],
+  },
+  {
+    id: 'e4', title: '레그락 디펜스 마스터 워크샵',
+    category: 'workshop', date: '2026-04-27', time: '15:00-17:00',
+    location: '서초 그래플링', address: '서울 서초구 서초동 456-78',
+    imageUrl: '/events/event4.svg',
+    instructor: '한동우', instructorTitle: '퍼플벨트 / 레그락 스페셜리스트',
+    price: '40,000원', description: '힐훅, 니바, 토홀드 등 레그락 공격에 대한 디펜스와 에스케이프를 집중적으로 다루는 워크샵입니다.',
+    capacity: 20, registered: 14, tags: ['레그락', '디펜스', '블루벨트+'],
+  },
+  {
+    id: 'e5', title: '마르셀로 가르시아 노기 세미나',
+    category: 'seminar', date: '2026-07-10', time: '14:00-17:00',
+    location: '코리안탑팀 송파', address: '서울 송파구 잠실동 234-56',
+    imageUrl: '/events/event5.svg',
+    instructor: '마르셀로 가르시아', instructorTitle: '5x 월드챔피언 / ADCC 레전드',
+    price: '200,000원', description: '노기 주짓수의 살아있는 전설, 마르셀로 가르시아의 한국 첫 세미나. 기요틴, 노스사우스 초크 등 시그니처 기술을 직접 배울 수 있습니다.',
+    capacity: 50, registered: 48, tags: ['No-Gi', '레전드', '전벨트'],
+  },
+  {
+    id: 'e6', title: '여성 주짓수 오픈매트',
+    category: 'open-mat', date: '2026-04-13', time: '14:00-16:00',
+    location: '홍대 주짓수', address: '서울 마포구 서교동 345-67',
+    imageUrl: '/events/event6.svg',
+    price: '무료', description: '여성 수련자를 위한 오픈매트. 편안한 분위기에서 자유롭게 스파링하고 기술을 나눌 수 있습니다.',
+    capacity: 20, registered: 12, tags: ['여성', '무료', '프렌들리'],
+  },
+];

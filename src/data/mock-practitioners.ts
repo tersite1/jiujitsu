@@ -1,0 +1,68 @@
+import { Practitioner } from '@/types/practitioner';
+
+export const practitioners: Practitioner[] = [
+  {
+    id: 'p1', name: '박서연', age: 24, beltLevel: 'blue', stripes: 1,
+    weightClass: 'feather', weightKg: 58, region: '마포', gym: '올림픽 BJJ',
+    experience: '2년 6개월', trainFrequency: '주 3회', intensityPreference: 'light',
+    preferredSchedule: ['평일 저녁', '주말 오후'],
+    bio: '가볍게 기술 연습 위주로 스파링하고 싶어요. 하프가드를 주로 씁니다.',
+    avatarUrl: '/avatars/p1.svg', isAvailable: true,
+  },
+  {
+    id: 'p2', name: '이준호', age: 31, beltLevel: 'white', stripes: 4,
+    weightClass: 'heavy', weightKg: 92, region: '송파', gym: '코리안탑팀',
+    experience: '1년 2개월', trainFrequency: '주 5회', intensityPreference: 'hard',
+    preferredSchedule: ['평일 아침', '평일 저녁'],
+    bio: '대회 준비 중입니다. 강한 스파링 환영합니다.',
+    avatarUrl: '/avatars/p2.svg', isAvailable: true,
+  },
+  {
+    id: 'p3', name: '최수빈', age: 29, beltLevel: 'blue', stripes: 2,
+    weightClass: 'middle', weightKg: 82, region: '강남', gym: '그래플링 아카데미 강남',
+    experience: '3년 1개월', trainFrequency: '주 4회', intensityPreference: 'medium',
+    preferredSchedule: ['평일 저녁', '주말 오전'],
+    bio: '포지셔널 스파링 좋아합니다. 다양한 체급 상대 환영.',
+    avatarUrl: '/avatars/p3.svg', isAvailable: true,
+  },
+  {
+    id: 'p4', name: '정민지', age: 26, beltLevel: 'white', stripes: 2,
+    weightClass: 'light-feather', weightKg: 53, region: '홍대', gym: '홍대 주짓수',
+    experience: '10개월', trainFrequency: '주 3회', intensityPreference: 'light',
+    preferredSchedule: ['주말 오전', '주말 오후'],
+    bio: '아직 초보지만 열심히 배우고 있어요! 같은 체급 수련자 찾습니다.',
+    avatarUrl: '/avatars/p4.svg', isAvailable: true,
+  },
+  {
+    id: 'p5', name: '한동우', age: 34, beltLevel: 'purple', stripes: 0,
+    weightClass: 'medium-heavy', weightKg: 88, region: '서초', gym: '서초 그래플링',
+    experience: '5년 2개월', trainFrequency: '주 4회', intensityPreference: 'medium',
+    preferredSchedule: ['평일 저녁'],
+    bio: '레그락 위주로 연습하고 있습니다. 다양한 벨트 수련자 환영.',
+    avatarUrl: '/avatars/p5.svg', isAvailable: true,
+  },
+  {
+    id: 'p6', name: '김태현', age: 22, beltLevel: 'white', stripes: 1,
+    weightClass: 'feather', weightKg: 64, region: '건대', gym: '건대 파이트클럽',
+    experience: '6개월', trainFrequency: '주 3회', intensityPreference: 'light',
+    preferredSchedule: ['평일 저녁', '주말 오전'],
+    bio: '완전 초보입니다. 기초 기술 같이 연습할 분 찾아요.',
+    avatarUrl: '/avatars/p6.svg', isAvailable: true,
+  },
+  {
+    id: 'p7', name: '오승민', age: 28, beltLevel: 'blue', stripes: 3,
+    weightClass: 'light', weightKg: 76, region: '잠실', gym: '잠실 주짓수 아카데미',
+    experience: '2년 11개월', trainFrequency: '주 5회', intensityPreference: 'hard',
+    preferredSchedule: ['평일 아침', '평일 저녁', '주말 오전'],
+    bio: '대회 씬에서 활동 중. 인텐스한 롤링 좋아합니다.',
+    avatarUrl: '/avatars/p7.svg', isAvailable: false,
+  },
+  {
+    id: 'p8', name: '양지은', age: 25, beltLevel: 'white', stripes: 3,
+    weightClass: 'rooster', weightKg: 50, region: '종로', gym: '종로 유술관',
+    experience: '1년 4개월', trainFrequency: '주 4회', intensityPreference: 'medium',
+    preferredSchedule: ['평일 저녁', '주말 오후'],
+    bio: '작은 체구를 활용한 가드 플레이를 연습 중입니다.',
+    avatarUrl: '/avatars/p8.svg', isAvailable: true,
+  },
+];

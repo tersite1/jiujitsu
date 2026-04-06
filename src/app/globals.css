@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: #FFFFFF;
+  --color-foreground: #222222;
+  --color-kream-bg: #F5F5F5;
+  --color-kream-border: #EBEBEB;
+  --color-kream-red: #EF6253;
+  --color-kream-black: #222222;
+  --color-kream-gray: #999999;
+  --color-kream-lightgray: #D5D5D5;
+  --color-kream-green: #31B46E;
+  --color-belt-white: #E0E0E0;
+  --color-belt-blue: #1E88E5;
+  --color-belt-purple: #8E24AA;
+  --color-belt-brown: #795548;
+  --color-belt-black: #222222;
+  --color-intensity-light: #4CAF50;
+  --color-intensity-medium: #FF9800;
+  --color-intensity-hard: #EF6253;
+  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-family: var(--font-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #F5F5F5;
+  color: #222222;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* Mobile app container */
+.app-container {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  background: #FFFFFF;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Scrollbar hide for horizontal scrolls */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bottom sheet backdrop */
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Toast animation */
+@keyframes toast-in {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes toast-out {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-20px); opacity: 0; }
+}
+.toast-enter {
+  animation: toast-in 0.3s ease-out;
+}
+.toast-exit {
+  animation: toast-out 0.3s ease-in forwards;
+}
+
+/* Slide up animation for bottom sheet */
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.slide-up {
+  animation: slide-up 0.3s ease-out;
 }
