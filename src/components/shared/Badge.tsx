@@ -16,7 +16,7 @@ export default function Badge({ label, color, variant = "filled", className }: B
           ? "bg-[#222] text-white font-semibold"
           : variant === "filled"
           ? "bg-kream-bg text-kream-black"
-          : "bg-transparent border border-[#D5D5D5] text-[#555]",
+          : "bg-transparent border border-kream-lightgray text-kream-dark",
         className
       )}
       style={color ? (variant === "filled" ? { backgroundColor: `${color}18`, color } : variant === "outline" ? { borderColor: color, color } : undefined) : undefined}

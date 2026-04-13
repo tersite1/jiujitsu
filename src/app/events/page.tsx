@@ -40,7 +40,7 @@ export default function EventsPage() {
       <TopBar title="이벤트" />
 
       {/* Category Tabs */}
-      <div className="bg-[#2D2D2D]">
+      <div className="border-b border-[#E0E0E0]">
         <div className="flex overflow-x-auto hide-scrollbar">
           {tabs.map((tab) => (
             <button
@@ -48,13 +48,13 @@ export default function EventsPage() {
               onClick={() => setActiveTab(tab.key)}
               className={`shrink-0 px-4 py-3 text-sm font-medium relative transition-colors ${
                 activeTab === tab.key
-                  ? "text-white font-bold"
-                  : "text-white/40"
+                  ? "text-[#111] font-bold"
+                  : "text-kream-gray"
               }`}
             >
               {tab.label}
               {activeTab === tab.key && (
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white" />
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#222]" />
               )}
             </button>
           ))}
@@ -62,7 +62,7 @@ export default function EventsPage() {
       </div>
 
       <div className="px-4 pt-3 pb-4">
-        <p className="text-sm text-kream-gray mb-3">
+        <p className="text-sm text-kream-gray border-t border-kream-border pt-3 mb-2">
           <span className="font-bold text-[#111]">{filtered.length}건</span>의 이벤트
         </p>
 

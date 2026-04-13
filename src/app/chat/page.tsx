@@ -76,7 +76,7 @@ export default function ChatPage() {
               <Link key={room.id} href={`/chat/${room.id}`}>
                 <div className="flex items-center gap-3 py-3.5 border-b border-kream-border">
                   {/* Gym avatar */}
-                  <div className="w-12 h-12 rounded-full bg-kream-bg overflow-hidden shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-kream-bg overflow-hidden shrink-0">
                     <img src={room.gymImageUrl} alt={room.gymName} className="w-full h-full object-cover" />
                   </div>
 

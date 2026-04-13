@@ -22,7 +22,7 @@ export default function BottomNav() {
   const unreadCount = 1;
 
   return (
-    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-[#222] z-50">
+    <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-kream-border z-50">
       <div className="flex items-center justify-around h-16 pb-[env(safe-area-inset-bottom)]">
         {tabs.map((tab) => {
           const active = isActive(tab.href);
@@ -35,13 +35,13 @@ export default function BottomNav() {
               className="flex flex-col items-center justify-center gap-0.5 flex-1 py-2 relative"
             >
               {active && (
-                <span className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-[2px] bg-white rounded-full" />
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-[2px] bg-[#222] rounded-full" />
               )}
               <div className="relative">
                 <Icon
                   size={22}
                   strokeWidth={active ? 2.5 : 1.8}
-                  className={active ? "text-white" : "text-white/40"}
+                  className={active ? "text-[#111]" : "text-kream-gray"}
                 />
                 {showBadge && (
                   <span className="absolute -top-1 -right-1.5 w-[14px] h-[14px] bg-[#EF6253] rounded-full flex items-center justify-center">
@@ -52,8 +52,8 @@ export default function BottomNav() {
               <span
                 className={`text-[10px] ${
                   active
-                    ? "text-white font-bold"
-                    : "text-white/40 font-normal"
+                    ? "text-[#111] font-bold"
+                    : "text-kream-gray font-normal"
                 }`}
               >
                 {tab.label}

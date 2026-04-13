@@ -21,21 +21,21 @@ export default function Home() {
   return (
     <AppShell>
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-[#222]">
+      <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_#E0E0E0]">
         <div className="flex items-center justify-between h-12 px-4">
           <div className="flex items-center gap-1.5">
             <img src="/logo.png" alt="매치핏" className="h-7 w-auto" />
-            <span className="text-lg font-bold text-white tracking-tight">{APP_NAME}</span>
+            <span className="text-lg font-bold text-[#111] tracking-tight">{APP_NAME}</span>
           </div>
-          <button className="p-1.5 rounded-full hover:bg-white/10 transition-colors">
-            <Bell size={20} className="text-white" />
+          <button className="p-1.5 rounded-full hover:bg-kream-bg transition-colors">
+            <Bell size={20} className="text-[#222]" />
           </button>
         </div>
       </header>
 
       <div className="px-4 pt-5 pb-4 space-y-6">
         {/* Greeting */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 pb-4 border-b border-kream-border">
           <Avatar name={currentUser.name} size="lg" beltLevel={currentUser.beltLevel} />
           <div>
             <p className="text-base font-semibold text-[#111] tracking-tight">
@@ -64,7 +64,7 @@ export default function Home() {
         <section>
           <div className="flex items-center justify-between mb-3">
             <h2 className="section-header">추천 오픈매트</h2>
-            <Link href="/openmat" className="flex items-center gap-0.5 text-xs font-semibold text-[#333]">
+            <Link href="/openmat" className="flex items-center gap-0.5 text-xs font-semibold text-kream-gray">
               전체보기 <ChevronRight size={13} strokeWidth={2.5} />
             </Link>
           </div>
@@ -80,7 +80,7 @@ export default function Home() {
                   <Card padding="none" className="overflow-hidden mb-2.5">
                     <div className="flex">
                       {/* Gym Image */}
-                      <div className="shrink-0 w-24 h-28 bg-kream-bg">
+                      <div className="shrink-0 w-28 min-h-[100px] bg-kream-bg">
                         <img src={om.gymImageUrl} alt={om.gymName} className="w-full h-full object-cover" />
                       </div>
                       {/* Info */}
@@ -120,7 +120,7 @@ export default function Home() {
         <section>
           <div className="flex items-center justify-between mb-3">
             <h2 className="section-header">이벤트</h2>
-            <Link href="/events" className="flex items-center gap-0.5 text-xs font-semibold text-[#333]">
+            <Link href="/events" className="flex items-center gap-0.5 text-xs font-semibold text-kream-gray">
               전체보기 <ChevronRight size={13} strokeWidth={2.5} />
             </Link>
           </div>

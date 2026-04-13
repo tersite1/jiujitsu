@@ -57,8 +57,8 @@ export default function ChatDetailPage() {
           <div className="px-4 pt-3">
             <Card padding="sm" className="bg-kream-bg border-none">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[#222] flex items-center justify-center shrink-0">
-                  <Calendar size={18} className="text-white" />
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-kream-bg">
+                  <Calendar size={18} className="text-[#222]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">

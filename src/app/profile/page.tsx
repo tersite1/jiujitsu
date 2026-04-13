@@ -52,42 +52,42 @@ export default function ProfilePage() {
 
       <div className="pb-4">
         {/* Profile Header — charcoal bg */}
-        <div className="bg-[#2D2D2D] px-4 pt-8 pb-6">
+        <div className="px-4 pt-8 pb-5">
           <div className="flex items-center gap-4">
             <Avatar name={currentUser.name} size="xl" beltLevel={currentUser.beltLevel} />
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <h2 className="text-lg font-bold text-white">{currentUser.name}</h2>
+                <h2 className="text-lg font-bold text-[#111]">{currentUser.name}</h2>
                 <button className="p-1">
-                  <Edit3 size={14} className="text-white/60" />
+                  <Edit3 size={14} className="text-kream-gray" />
                 </button>
               </div>
               <div className="flex items-center gap-1.5 mt-1">
                 <div
-                  className="w-2.5 h-2.5 rounded-full"
+                  className="w-2.5 h-2.5 rounded-full border border-kream-border"
                   style={{ backgroundColor: currentUser.beltLevel === "white" ? "#E0E0E0" : undefined }}
                 />
-                <span className="text-sm text-white/80">
+                <span className="text-sm text-kream-gray">
                   {BELT_LABELS[currentUser.beltLevel]} {currentUser.stripes > 0 && `${currentUser.stripes}그랄`}
                 </span>
               </div>
-              <p className="text-xs text-white/50 mt-1">{currentUser.gym} · {currentUser.experience}</p>
-              <p className="text-[10px] text-white/40 mt-0.5">가입일 {joinStr}</p>
+              <p className="text-xs text-kream-gray mt-1">{currentUser.gym} · {currentUser.experience}</p>
+              <p className="text-[11px] text-kream-lightgray mt-0.5">가입일 {joinStr}</p>
             </div>
           </div>
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-4 bg-[#333333]">
+        <div className="grid grid-cols-4 border-y border-kream-border">
           {[
             { label: "스파링", value: userStats.totalSparring },
             { label: "오픈매트", value: userStats.openmatAttended },
             { label: "연속 수련", value: `${userStats.streak}일` },
             { label: "총 수련일", value: userStats.totalTrainingDays },
           ].map((stat) => (
-            <div key={stat.label} className="text-center py-4 border-r border-white/10 last:border-r-0">
-              <p className="text-base font-bold text-white">{stat.value}</p>
-              <p className="text-[10px] text-white/50 mt-0.5">{stat.label}</p>
+            <div key={stat.label} className="text-center py-4 border-r border-kream-border last:border-r-0">
+              <p className="text-base font-bold text-[#111]">{stat.value}</p>
+              <p className="text-[11px] text-kream-gray mt-0.5">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -95,7 +95,7 @@ export default function ProfilePage() {
         <div className="px-4 pt-5 space-y-5">
           {/* Bio */}
           <Card>
-            <p className="text-xs font-bold text-[#111] mb-2">자기소개</p>
+            <h3 className="section-header mb-2">자기소개</h3>
             <p className="text-sm text-kream-gray leading-relaxed">{currentUser.bio}</p>
           </Card>
 
@@ -131,7 +131,7 @@ export default function ProfilePage() {
                       i < userActivity.length - 1 ? "border-b border-kream-border" : ""
                     }`}
                   >
-                    <div className="w-8 h-8 rounded-lg bg-[#2D2D2D] flex items-center justify-center shrink-0">
+                    <div className="w-8 h-8 rounded-lg bg-kream-charcoal flex items-center justify-center shrink-0">
                       <Icon size={14} className="text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
