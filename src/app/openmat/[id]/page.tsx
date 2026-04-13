@@ -12,8 +12,6 @@ import { openmats } from "@/data/mock-openmats";
 import { getProgressPercent } from "@/lib/utils";
 import { Calendar, MapPin, DollarSign, Users, Clock, RefreshCw } from "lucide-react";
 
-const mockParticipantColors = ["#EF6253", "#1E88E5", "#31B46E", "#FF9800", "#8E24AA", "#795548"];
-
 export default function OpenMatDetailPage() {
   const params = useParams();
   const [showToast, setShowToast] = useState(false);
@@ -48,10 +46,11 @@ export default function OpenMatDetailPage() {
     <AppShell>
       <TopBar title="오픈매트" showBack />
 
-      <div className="pb-28">
-        {/* Hero */}
-        <div className="h-48 bg-kream-bg relative">
+      <div className="pb-[88px]">
+        {/* Hero with overlay */}
+        <div className="h-52 bg-kream-bg relative">
           <img src={om.gymImageUrl} alt={om.gymName} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           {om.price === "무료" && (
             <div className="absolute top-3 left-3">
               <Badge label="무료" color="#31B46E" />
@@ -62,20 +61,18 @@ export default function OpenMatDetailPage() {
               <Badge label="마감" color="#EF6253" />
             </div>
           )}
+          <div className="absolute bottom-4 left-4 right-4">
+            <h2 className="text-2xl font-black text-white tracking-[-0.02em] leading-tight">{om.gymName}</h2>
+            <p className="text-sm text-white/70 mt-1">{om.location}</p>
+          </div>
         </div>
 
         <div className="px-4 pt-4 space-y-5">
-          {/* Title */}
-          <div>
-            <h2 className="text-lg font-bold text-kream-black leading-snug">{om.gymName}</h2>
-            <p className="text-sm text-kream-gray mt-1">{om.location}</p>
-          </div>
-
           {/* Capacity Progress */}
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-xs text-kream-gray">참여 현황</span>
-              <span className="text-xs font-semibold text-kream-black">
+              <span className="text-xs font-bold text-[#111]">
                 {om.registered}/{om.capacity}명
               </span>
             </div>
@@ -105,10 +102,10 @@ export default function OpenMatDetailPage() {
                   i < infoRows.length - 1 ? "border-b border-kream-border" : ""
                 }`}
               >
-                <row.icon size={16} className="text-kream-gray shrink-0 mt-0.5" />
+                <row.icon size={16} className="text-[#333] shrink-0 mt-0.5" />
                 <div className="flex-1 min-w-0">
                   <p className="text-[11px] text-kream-gray">{row.label}</p>
-                  <p className="text-sm text-kream-black whitespace-pre-line">{row.value}</p>
+                  <p className="text-sm font-medium text-[#111] whitespace-pre-line">{row.value}</p>
                 </div>
               </div>
             ))}
@@ -116,7 +113,7 @@ export default function OpenMatDetailPage() {
 
           {/* Description */}
           <div>
-            <h3 className="text-sm font-bold text-kream-black mb-2">상세 정보</h3>
+            <h3 className="section-header mb-2">상세 정보</h3>
             <Card>
               <p className="text-sm text-kream-gray leading-relaxed">{om.description}</p>
             </Card>
@@ -124,10 +121,10 @@ export default function OpenMatDetailPage() {
 
           {/* Tags */}
           <div>
-            <h3 className="text-sm font-bold text-kream-black mb-2">태그</h3>
+            <h3 className="section-header mb-2">태그</h3>
             <div className="flex gap-1.5 flex-wrap">
               {om.tags.map((t) => (
-                <Badge key={t} label={t} variant="outline" />
+                <Badge key={t} label={t} variant="solid" />
               ))}
             </div>
           </div>
@@ -135,15 +132,18 @@ export default function OpenMatDetailPage() {
           {/* Participants Preview */}
           {om.registered > 0 && (
             <div>
-              <h3 className="text-sm font-bold text-kream-black mb-2">참가자</h3>
+              <h3 className="section-header mb-2">참가자</h3>
               <div className="flex items-center">
                 <div className="flex -space-x-2">
-                  {mockParticipantColors.slice(0, Math.min(6, om.registered)).map((color, i) => (
+                  {Array.from({ length: Math.min(6, om.registered) }).map((_, i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 rounded-full border-2 border-white"
-                      style={{ backgroundColor: color }}
-                    />
+                      className="w-8 h-8 rounded-full border-2 border-white bg-[#222] flex items-center justify-center"
+                    >
+                      <span className="text-white text-[10px] font-bold">
+                        {String.fromCharCode(65 + i)}
+                      </span>
+                    </div>
                   ))}
                 </div>
                 <span className="ml-2 text-xs text-kream-gray">
@@ -156,7 +156,7 @@ export default function OpenMatDetailPage() {
       </div>
 
       {/* Sticky Bottom CTA */}
-      <div className="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[430px] p-4 bg-white border-t border-kream-border z-30">
+      <div className="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[430px] p-4 bg-white border-t border-[#E0E0E0] z-30">
         <Button
           size="lg"
           variant={isFull ? "outline" : "primary"}

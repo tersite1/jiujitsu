@@ -28,17 +28,20 @@ export default function BottomNav() {
             <Link
               key={tab.href}
               href={tab.href}
-              className="flex flex-col items-center justify-center gap-0.5 flex-1 py-2"
+              className="flex flex-col items-center justify-center gap-0.5 flex-1 py-2 relative"
             >
+              {active && (
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-[2px] bg-[#222] rounded-full" />
+              )}
               <Icon
                 size={22}
-                strokeWidth={active ? 2.2 : 1.5}
-                className={active ? "text-kream-black" : "text-kream-gray"}
+                strokeWidth={active ? 2.5 : 1.8}
+                className={active ? "text-[#111]" : "text-kream-gray"}
               />
               <span
                 className={`text-[10px] ${
                   active
-                    ? "text-kream-black font-semibold"
+                    ? "text-[#111] font-bold"
                     : "text-kream-gray font-normal"
                 }`}
               >

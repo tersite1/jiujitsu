@@ -40,7 +40,7 @@ export default function EventsPage() {
       <TopBar title="이벤트" />
 
       {/* Category Tabs */}
-      <div className="border-b border-kream-border">
+      <div className="border-b border-[#E0E0E0]">
         <div className="flex overflow-x-auto hide-scrollbar">
           {tabs.map((tab) => (
             <button
@@ -48,13 +48,13 @@ export default function EventsPage() {
               onClick={() => setActiveTab(tab.key)}
               className={`shrink-0 px-4 py-3 text-sm font-medium relative transition-colors ${
                 activeTab === tab.key
-                  ? "text-kream-black"
+                  ? "text-[#111] font-bold"
                   : "text-kream-gray"
               }`}
             >
               {tab.label}
               {activeTab === tab.key && (
-                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-kream-black" />
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#222]" />
               )}
             </button>
           ))}
@@ -62,7 +62,9 @@ export default function EventsPage() {
       </div>
 
       <div className="px-4 pt-3 pb-4">
-        <p className="text-xs text-kream-gray mb-3">{filtered.length}건의 이벤트</p>
+        <p className="text-sm text-kream-gray mb-3">
+          <span className="font-bold text-[#111]">{filtered.length}건</span>의 이벤트
+        </p>
 
         {filtered.length === 0 ? (
           <EmptyState
@@ -83,9 +85,9 @@ export default function EventsPage() {
                 <Link key={ev.id} href={`/events/${ev.id}`}>
                   <Card padding="sm" className="flex gap-3 items-start mb-2.5">
                     {/* Date Block */}
-                    <div className="shrink-0 w-14 h-16 bg-kream-bg rounded-xl flex flex-col items-center justify-center">
-                      <span className="text-[10px] text-kream-gray leading-tight">{month}월</span>
-                      <span className="text-xl font-bold text-kream-black leading-tight">{day}</span>
+                    <div className="shrink-0 w-14 h-16 bg-[#222] rounded-xl flex flex-col items-center justify-center">
+                      <span className="text-[10px] text-white/60 leading-tight">{month}월</span>
+                      <span className="text-xl font-bold text-white leading-tight">{day}</span>
                     </div>
 
                     {/* Content */}
@@ -96,7 +98,7 @@ export default function EventsPage() {
                           <Badge label="무료" color="#31B46E" />
                         )}
                       </div>
-                      <p className="text-sm font-semibold text-kream-black leading-snug">{ev.title}</p>
+                      <p className="text-sm font-bold text-[#111] leading-snug tracking-tight">{ev.title}</p>
                       {ev.instructor && (
                         <p className="text-[11px] text-kream-gray mt-0.5">
                           {ev.instructor}{ev.instructorTitle && ` · ${ev.instructorTitle}`}
@@ -106,9 +108,9 @@ export default function EventsPage() {
                         {ev.location} · {ev.time}
                       </p>
                       <div className="flex items-center justify-between mt-2">
-                        <span className="text-xs font-semibold text-kream-black">{ev.price}</span>
+                        <span className="text-xs font-bold text-[#111]">{ev.price}</span>
                         {ev.capacity && (
-                          <span className="text-[10px] text-kream-gray">
+                          <span className="text-[11px] text-kream-gray">
                             {ev.registered}/{ev.capacity}명
                           </span>
                         )}

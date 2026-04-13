@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 interface BadgeProps {
   label: string;
   color?: string;
-  variant?: "filled" | "outline";
+  variant?: "filled" | "outline" | "solid";
   className?: string;
 }
 
@@ -11,13 +11,15 @@ export default function Badge({ label, color, variant = "filled", className }: B
   return (
     <span
       className={cn(
-        "inline-flex items-center px-2 py-0.5 text-[11px] font-medium rounded-md",
-        variant === "filled"
+        "inline-flex items-center px-2.5 py-[3px] text-[11px] font-medium rounded-[5px]",
+        variant === "solid"
+          ? "bg-[#222] text-white font-semibold"
+          : variant === "filled"
           ? "bg-kream-bg text-kream-black"
-          : "bg-transparent border border-kream-border text-kream-gray",
+          : "bg-transparent border border-[#D5D5D5] text-[#555]",
         className
       )}
-      style={color ? (variant === "filled" ? { backgroundColor: `${color}18`, color } : { borderColor: color, color }) : undefined}
+      style={color ? (variant === "filled" ? { backgroundColor: `${color}18`, color } : variant === "outline" ? { borderColor: color, color } : undefined) : undefined}
     >
       {label}
     </span>

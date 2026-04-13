@@ -9,6 +9,18 @@ export const gyms: Gym[] = [
     languageSupport: ['한국어', 'English'], atmosphere: ['친절한', '체계적', '초보 환영'],
     hours: '평일 06:00-22:00 / 주말 09:00-18:00', phone: '02-1234-5678',
     instagram: '@grappling_gangnam', tags: ['Gi', 'No-Gi', '키즈', '여성반'],
+    description: '강남 최대 규모의 주짓수 전문 도장. 체계적인 커리큘럼과 넓은 매트 공간을 갖추고 있으며, 초보자부터 선수까지 다양한 레벨의 수련자가 함께 훈련합니다. 매주 일요일 오픈매트를 운영하며 타 도장 수련자도 환영합니다.',
+    facilities: ['샤워실', '탈의실', '주차장', '카페', '프로샵'],
+    instructors: [
+      { name: '박상훈', title: '관장 / 블랙벨트 3단', specialty: '가드 패싱' },
+      { name: '이민수', title: '코치 / 브라운벨트', specialty: '레그락' },
+    ],
+    schedule: [
+      { day: '평일', classes: ['06:00 모닝 Gi', '12:00 점심 No-Gi', '19:00 저녁 Gi', '20:30 스파링'] },
+      { day: '토요일', classes: ['10:00 올레벨 Gi', '14:00 컴피티션반'] },
+      { day: '일요일', classes: ['13:00-16:00 오픈매트'] },
+    ],
+    memberCount: 180,
   },
   {
     id: 'g2', name: '코리안탑팀 송파', nameEn: 'Korean Top Team Songpa',
@@ -18,6 +30,17 @@ export const gyms: Gym[] = [
     languageSupport: ['한국어'], atmosphere: ['경쟁적', '체계적', '대회 준비'],
     hours: '평일 07:00-22:00 / 주말 10:00-17:00', phone: '02-2345-6789',
     instagram: '@ktt_songpa', tags: ['Gi', 'No-Gi', 'MMA', '대회반'],
+    description: '대회 준비에 특화된 주짓수 도장. 국내외 대회 입상자를 다수 배출했으며, 인텐스한 스파링 환경을 제공합니다. MMA 프로그램도 함께 운영합니다.',
+    facilities: ['샤워실', '탈의실', '웨이트룸', '사우나'],
+    instructors: [
+      { name: '최대한', title: '관장 / 블랙벨트 2단', specialty: '테이크다운' },
+      { name: '김준서', title: '코치 / 퍼플벨트', specialty: 'No-Gi' },
+    ],
+    schedule: [
+      { day: '평일', classes: ['07:00 모닝 Gi', '19:00 저녁 Gi', '20:30 컴피티션 스파링'] },
+      { day: '토요일', classes: ['10:00 No-Gi', '15:00-18:00 오픈매트'] },
+    ],
+    memberCount: 120,
   },
   {
     id: 'g3', name: 'Carpe Diem Tokyo', nameEn: 'Carpe Diem Tokyo',
@@ -28,6 +51,16 @@ export const gyms: Gym[] = [
     atmosphere: ['프렌들리', '국제적', '기술 중심'],
     hours: '평일 10:00-22:00 / 주말 10:00-18:00',
     instagram: '@carpediembjj', tags: ['Gi', 'No-Gi', '드랍인 환영'],
+    description: '도쿄를 대표하는 국제적인 주짓수 도장. 세계 각국에서 온 수련자들이 함께 훈련하며, 기술 중심의 체계적인 수업을 제공합니다. 여행자 드랍인을 적극 환영합니다.',
+    facilities: ['샤워실', '탈의실', '라운지', '프로샵'],
+    instructors: [
+      { name: 'Yuki Ishikawa', title: '관장 / 블랙벨트 3단', specialty: '베림볼로' },
+    ],
+    schedule: [
+      { day: '평일', classes: ['10:00 Gi Fundamentals', '19:00 All Levels', '20:30 Sparring'] },
+      { day: '주말', classes: ['10:00 Open Class', '14:00-17:00 Open Mat'] },
+    ],
+    memberCount: 200,
   },
   {
     id: 'g4', name: 'Alliance São Paulo', nameEn: 'Alliance São Paulo',
@@ -38,6 +71,17 @@ export const gyms: Gym[] = [
     atmosphere: ['열정적', '경쟁적', '월드클래스'],
     hours: '평일 07:00-21:00 / 토 09:00-14:00',
     instagram: '@alliancesp', tags: ['Gi', 'No-Gi', '프로선수'],
+    description: '브라질 주짓수의 성지. Alliance 본부 도장으로, 월드 챔피언을 다수 배출한 명문 도장입니다. 세계 최고 수준의 스파링을 경험할 수 있습니다.',
+    facilities: ['샤워실', '탈의실', '웨이트룸', '카페테리아', '프로샵'],
+    instructors: [
+      { name: 'Fabio Gurgel', title: '마스터 / 블랙벨트 5단', specialty: '클래식 가드' },
+      { name: 'Michael Langhi', title: '코치 / 블랙벨트 3단', specialty: '스파이더 가드' },
+    ],
+    schedule: [
+      { day: '평일', classes: ['07:00 Morning Gi', '12:00 Lunch Gi', '18:00 Evening All Levels', '19:30 Competition'] },
+      { day: '토요일', classes: ['09:00 Gi', '11:00 Open Mat'] },
+    ],
+    memberCount: 350,
   },
   {
     id: 'g5', name: '홍대 주짓수', nameEn: 'Hongdae Jiu-Jitsu',
@@ -47,6 +91,17 @@ export const gyms: Gym[] = [
     languageSupport: ['한국어', 'English'], atmosphere: ['자유로운', '친절한', '초보 환영'],
     hours: '평일 10:00-22:00 / 주말 11:00-18:00',
     instagram: '@hongdae_bjj', tags: ['Gi', 'No-Gi', '여성반'],
+    description: '편안하고 자유로운 분위기의 주짓수 도장. 초보자와 여성 수련자에게 특히 추천하며, 격주 일요일 여성 전용 오픈매트를 운영합니다.',
+    facilities: ['샤워실', '탈의실', '주차장'],
+    instructors: [
+      { name: '양서진', title: '관장 / 브라운벨트', specialty: '하프가드' },
+    ],
+    schedule: [
+      { day: '평일', classes: ['10:00 Fundamentals', '19:00 All Levels', '20:30 스파링'] },
+      { day: '토요일', classes: ['11:00-14:00 오픈매트'] },
+      { day: '일요일(격주)', classes: ['14:00-16:00 여성 오픈매트'] },
+    ],
+    memberCount: 85,
   },
   {
     id: 'g6', name: 'ATOS Bangkok', nameEn: 'ATOS Bangkok',
@@ -56,18 +111,30 @@ export const gyms: Gym[] = [
     languageSupport: ['English', 'ไทย'], atmosphere: ['국제적', '프렌들리', '기술 중심'],
     hours: '매일 08:00-21:00',
     instagram: '@atos_bkk', tags: ['Gi', 'No-Gi', '드랍인 환영', '숙소 연계'],
+    description: '방콕 최고의 주짓수 도장. ATOS 인터내셔널 소속으로, 숙소 연계 프로그램을 통해 장기 트레이닝 캠프도 가능합니다. 매일 2부제 수업 운영.',
+    facilities: ['샤워실', '탈의실', '라운지', '숙소 연계', '세탁 서비스'],
+    instructors: [
+      { name: 'Thalison Soares', title: '관장 / 블랙벨트 2단', specialty: '모던 가드' },
+      { name: 'Aung Lwin', title: '코치 / 퍼플벨트', specialty: 'No-Gi' },
+    ],
+    schedule: [
+      { day: '매일', classes: ['08:00 Morning Gi', '10:00 Morning No-Gi', '17:00 Evening Gi', '19:00 Sparring'] },
+    ],
+    memberCount: 150,
   },
 ];
 
 export const gymReviews: GymReview[] = [
-  { id: 'r1', gymId: 'g1', authorName: '이수현', authorBelt: '블루', rating: 5, date: '2026-03-28', content: '시설이 깨끗하고 관장님이 정말 친절하세요. 초보자도 편하게 다닐 수 있는 분위기입니다.' },
-  { id: 'r2', gymId: 'g1', authorName: '박준형', authorBelt: '화이트', rating: 5, date: '2026-03-15', content: '체계적인 커리큘럼이 좋습니다. 기초부터 차근차근 배울 수 있어요.' },
+  { id: 'r1', gymId: 'g1', authorName: '이수현', authorBelt: '블루', rating: 5, date: '2026-03-28', content: '시설이 깨끗하고 관장님이 정말 친절하세요. 초보자도 편하게 다닐 수 있는 분위기입니다. 매트도 넓어서 스파링할 때 부딪힐 걱정이 없어요.' },
+  { id: 'r2', gymId: 'g1', authorName: '박준형', authorBelt: '화이트', rating: 5, date: '2026-03-15', content: '체계적인 커리큘럼이 좋습니다. 기초부터 차근차근 배울 수 있어요. 특히 모닝 클래스가 알차요.' },
   { id: 'r3', gymId: 'g1', authorName: '김민서', authorBelt: '퍼플', rating: 4, date: '2026-02-20', content: '기술 수업 퀄리티가 높습니다. 다만 저녁 시간대는 사람이 많아서 매트 공간이 좀 부족해요.' },
   { id: 'r4', gymId: 'g3', authorName: '정우진', authorBelt: '블루', rating: 5, date: '2026-03-10', content: '도쿄 여행 중 드랍인 했는데 정말 환영해줬어요. 영어 소통도 잘 되고, 기술 레벨이 높습니다.' },
   { id: 'r5', gymId: 'g3', authorName: '최하은', authorBelt: '화이트', rating: 5, date: '2026-02-28', content: '외국인도 전혀 어색하지 않은 분위기. 일본 주짓수 경험하려면 여기 강추!' },
   { id: 'r6', gymId: 'g2', authorName: '한상우', authorBelt: '블루', rating: 4, date: '2026-03-22', content: '대회 준비하기 좋은 환경. 인텐스한 스파링이 가능합니다. 초보에게는 좀 빡셀 수 있어요.' },
-  { id: 'r7', gymId: 'g4', authorName: '오지훈', authorBelt: '퍼플', rating: 5, date: '2026-01-15', content: '브라질 본토의 주짓수를 경험할 수 있습니다. 정말 레벨이 다릅니다.' },
-  { id: 'r8', gymId: 'g5', authorName: '양서연', authorBelt: '화이트', rating: 4, date: '2026-03-05', content: '분위기가 자유롭고 편안해요. 처음 시작하는 분들에게 추천합니다.' },
-  { id: 'r9', gymId: 'g6', authorName: '김도현', authorBelt: '블루', rating: 5, date: '2026-02-10', content: '방콕 여행 중 일주일 드랍인. 숙소도 연결해주고, 매일 2부 수업이라 알차게 수련했습니다.' },
+  { id: 'r7', gymId: 'g4', authorName: '오지훈', authorBelt: '퍼플', rating: 5, date: '2026-01-15', content: '브라질 본토의 주짓수를 경험할 수 있습니다. 정말 레벨이 다릅니다. 일생에 한 번은 꼭 가볼 곳.' },
+  { id: 'r8', gymId: 'g5', authorName: '양서연', authorBelt: '화이트', rating: 4, date: '2026-03-05', content: '분위기가 자유롭고 편안해요. 처음 시작하는 분들에게 추천합니다. 여성반이 따로 있어서 좋아요.' },
+  { id: 'r9', gymId: 'g6', authorName: '김도현', authorBelt: '블루', rating: 5, date: '2026-02-10', content: '방콕 여행 중 일주일 드랍인. 숙소도 연결해주고, 매일 2부 수업이라 알차게 수련했습니다. 가성비 최고!' },
   { id: 'r10', gymId: 'g2', authorName: '이가영', authorBelt: '화이트', rating: 4, date: '2026-03-18', content: '관장님이 실력이 출중하시고 가르침도 좋습니다. 다만 주차가 불편해요.' },
+  { id: 'r11', gymId: 'g5', authorName: '김하린', authorBelt: '블루', rating: 5, date: '2026-04-01', content: '여성 오픈매트가 정말 좋아요. 편안한 분위기에서 마음 놓고 스파링할 수 있습니다.' },
+  { id: 'r12', gymId: 'g1', authorName: '한지우', authorBelt: '블루', rating: 5, date: '2026-04-08', content: '일요일 오픈매트 다녀왔는데 분위기 최고! 다른 도장 분들도 많이 와서 다양한 스타일 경험할 수 있었어요.' },
 ];

@@ -34,7 +34,6 @@ export default function GymsPage() {
 
   const filtered = useMemo(() => {
     return gyms.filter((g) => {
-      // Search
       if (search) {
         const q = search.toLowerCase();
         if (
@@ -44,10 +43,8 @@ export default function GymsPage() {
           !g.country.toLowerCase().includes(q)
         ) return false;
       }
-      // Location
       if (location === "domestic" && g.country !== "한국") return false;
       if (location === "international" && g.country === "한국") return false;
-      // Tags
       if (selectedTags.size > 0) {
         const gymSearchable = [...g.tags, ...g.atmosphere, ...g.languageSupport, g.dropInAvailable ? "드랍인 가능" : ""].map(t => t.toLowerCase());
         for (const tag of selectedTags) {
@@ -74,7 +71,7 @@ export default function GymsPage() {
             placeholder="도장, 도시, 국가 검색..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-10 pl-9 pr-4 bg-kream-bg rounded-xl text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-kream-black"
+            className="w-full h-10 pl-9 pr-4 bg-kream-bg rounded-xl text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[#222]"
           />
         </div>
 
@@ -88,9 +85,9 @@ export default function GymsPage() {
             <button
               key={opt.key}
               onClick={() => setLocation(opt.key)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
                 location === opt.key
-                  ? "bg-kream-black text-white"
+                  ? "bg-[#222] text-white"
                   : "bg-kream-bg text-kream-black"
               }`}
             >
@@ -105,9 +102,9 @@ export default function GymsPage() {
             <button
               key={tag}
               onClick={() => toggleTag(tag)}
-              className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              className={`shrink-0 px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
                 selectedTags.has(tag)
-                  ? "bg-kream-black text-white"
+                  ? "bg-[#222] text-white"
                   : "bg-kream-bg text-kream-black"
               }`}
             >
@@ -117,7 +114,9 @@ export default function GymsPage() {
         </div>
 
         {/* Results Count */}
-        <p className="text-xs text-kream-gray mb-3">{filtered.length}개의 도장</p>
+        <p className="text-sm text-kream-gray mb-3">
+          <span className="font-bold text-[#111]">{filtered.length}개</span>의 도장
+        </p>
 
         {/* Gym List */}
         {filtered.length === 0 ? (
@@ -127,29 +126,35 @@ export default function GymsPage() {
             {filtered.map((gym) => (
               <Link key={gym.id} href={`/gyms/${gym.id}`}>
                 <Card padding="none" className="overflow-hidden mb-3">
-                  <div className="h-32 bg-kream-bg">
+                  <div className="h-36 bg-kream-bg relative">
                     <img src={gym.imageUrl} alt={gym.name} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="p-3">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-kream-black">{gym.name}</p>
-                        {gym.nameEn && (
-                          <p className="text-[11px] text-kream-lightgray">{gym.nameEn}</p>
-                        )}
-                      </div>
-                      {gym.dropInAvailable && (
-                        <Badge label={gym.dropInPrice || "드랍인 가능"} className="shrink-0 ml-2" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3">
+                      <p className="text-white text-base font-bold leading-snug tracking-tight">{gym.name}</p>
+                      {gym.nameEn && (
+                        <p className="text-white/60 text-[11px]">{gym.nameEn}</p>
                       )}
                     </div>
-                    <p className="text-[11px] text-kream-gray mt-1">
-                      {countryFlags[gym.country] || "🌍"} {gym.city}
-                    </p>
-                    <div className="flex items-center gap-1 mt-1.5">
-                      <RatingStars rating={gym.rating} size={12} />
-                      <span className="text-[11px] text-kream-gray">
-                        {gym.rating} ({gym.reviewCount})
-                      </span>
+                    {gym.dropInAvailable && (
+                      <div className="absolute top-2.5 right-2.5">
+                        <Badge label={gym.dropInPrice || "드랍인 가능"} />
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-3">
+                    <div className="flex items-center justify-between">
+                      <p className="text-[11px] text-kream-gray">
+                        {countryFlags[gym.country] || "🌍"} {gym.city}
+                      </p>
+                      <div className="flex items-center gap-1">
+                        <RatingStars rating={gym.rating} size={12} />
+                        <span className="text-[11px] font-semibold text-[#111]">
+                          {gym.rating}
+                        </span>
+                        <span className="text-[11px] text-kream-gray">
+                          ({gym.reviewCount})
+                        </span>
+                      </div>
                     </div>
                     <div className="flex gap-1 mt-2 flex-wrap">
                       {gym.tags.slice(0, 3).map((t) => (

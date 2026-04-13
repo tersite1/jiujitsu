@@ -14,7 +14,7 @@ export default function TopBar({ title, showBack, rightAction }: TopBarProps) {
   const router = useRouter();
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-kream-border">
+    <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_#E0E0E0]">
       <div className="flex items-center justify-between h-12 px-4">
         <div className="flex items-center gap-2 min-w-[40px]">
           {showBack && (
@@ -22,11 +22,11 @@ export default function TopBar({ title, showBack, rightAction }: TopBarProps) {
               onClick={() => router.back()}
               className="p-1 -ml-1 active:scale-95 transition-transform"
             >
-              <ChevronLeft size={24} className="text-kream-black" />
+              <ChevronLeft size={22} strokeWidth={2.5} className="text-[#111]" />
             </button>
           )}
         </div>
-        <h1 className="text-base font-semibold text-kream-black absolute left-1/2 -translate-x-1/2">
+        <h1 className="text-[15px] font-bold text-[#111] absolute left-1/2 -translate-x-1/2 tracking-tight">
           {title}
         </h1>
         <div className="min-w-[40px] flex justify-end">{rightAction}</div>

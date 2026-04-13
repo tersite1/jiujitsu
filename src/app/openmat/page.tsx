@@ -9,7 +9,7 @@ import Badge from "@/components/shared/Badge";
 import EmptyState from "@/components/shared/EmptyState";
 import { openmats } from "@/data/mock-openmats";
 import { getProgressPercent } from "@/lib/utils";
-import { Search, Calendar, MapPin, Users } from "lucide-react";
+import { Search, Calendar, Users } from "lucide-react";
 
 type LocationFilter = "all" | "domestic" | "international";
 type TimeFilter = "all" | "today" | "week" | "month";
@@ -39,7 +39,6 @@ export default function OpenMatPage() {
     monthEnd.setMonth(monthEnd.getMonth() + 1);
 
     return openmats.filter((om) => {
-      // Search
       if (search) {
         const q = search.toLowerCase();
         if (
@@ -48,15 +47,12 @@ export default function OpenMatPage() {
           !om.tags.some((t) => t.toLowerCase().includes(q))
         ) return false;
       }
-      // Location
       const isDomestic = om.location.includes("서울") || om.location.includes("부산") || om.location.includes("대구") || om.location.includes("인천");
       if (location === "domestic" && !isDomestic) return false;
       if (location === "international" && isDomestic) return false;
-      // Time
       if (timeRange === "today" && om.date !== todayStr) return false;
       if (timeRange === "week" && new Date(om.date) > weekEnd) return false;
       if (timeRange === "month" && new Date(om.date) > monthEnd) return false;
-      // Tags
       if (selectedTags.size > 0) {
         const omTags = [...om.tags, om.price === "무료" ? "무료" : ""].map((t) => t.toLowerCase());
         for (const tag of selectedTags) {
@@ -80,7 +76,7 @@ export default function OpenMatPage() {
             placeholder="도장, 지역 검색..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-10 pl-9 pr-4 bg-kream-bg rounded-xl text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-kream-black"
+            className="w-full h-10 pl-9 pr-4 bg-kream-bg rounded-xl text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[#222]"
           />
         </div>
 
@@ -94,9 +90,9 @@ export default function OpenMatPage() {
             <button
               key={opt.key}
               onClick={() => setLocation(opt.key)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
                 location === opt.key
-                  ? "bg-kream-black text-white"
+                  ? "bg-[#222] text-white"
                   : "bg-kream-bg text-kream-black"
               }`}
             >
@@ -116,9 +112,9 @@ export default function OpenMatPage() {
             <button
               key={opt.key}
               onClick={() => setTimeRange(opt.key)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
                 timeRange === opt.key
-                  ? "bg-kream-black text-white"
+                  ? "bg-[#222] text-white"
                   : "bg-kream-bg text-kream-black"
               }`}
             >
@@ -133,9 +129,9 @@ export default function OpenMatPage() {
             <button
               key={tag}
               onClick={() => toggleTag(tag)}
-              className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+              className={`shrink-0 px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
                 selectedTags.has(tag)
-                  ? "bg-kream-black text-white"
+                  ? "bg-[#222] text-white"
                   : "bg-kream-bg text-kream-black"
               }`}
             >
@@ -145,7 +141,9 @@ export default function OpenMatPage() {
         </div>
 
         {/* Results Count */}
-        <p className="text-xs text-kream-gray mb-3">{filtered.length}건의 오픈매트</p>
+        <p className="text-sm text-kream-gray mb-3">
+          <span className="font-bold text-[#111]">{filtered.length}건</span>의 오픈매트
+        </p>
 
         {/* Open Mat Cards */}
         {filtered.length === 0 ? (
@@ -167,9 +165,10 @@ export default function OpenMatPage() {
               return (
                 <Link key={om.id} href={`/openmat/${om.id}`}>
                   <Card padding="none" className="overflow-hidden mb-3">
-                    {/* Gym Image */}
-                    <div className="h-36 bg-kream-bg relative">
+                    {/* Gym Image with overlay */}
+                    <div className="h-44 bg-kream-bg relative">
                       <img src={om.gymImageUrl} alt={om.gymName} className="w-full h-full object-cover" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                       {isFull && (
                         <div className="absolute top-2.5 right-2.5">
                           <Badge label="마감" color="#EF6253" />
@@ -180,39 +179,35 @@ export default function OpenMatPage() {
                           <Badge label="무료" color="#31B46E" />
                         </div>
                       )}
+                      <div className="absolute bottom-3 left-3 right-3">
+                        <p className="text-white text-base font-bold leading-snug tracking-tight">{om.gymName}</p>
+                        <p className="text-white/70 text-[11px] mt-0.5">{om.location}</p>
+                      </div>
                     </div>
 
                     {/* Info */}
                     <div className="p-3">
-                      <div className="flex items-start justify-between">
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-semibold text-kream-black">{om.gymName}</p>
-                          <div className="flex items-center gap-1 mt-1">
-                            <MapPin size={12} className="text-kream-gray shrink-0" />
-                            <p className="text-[11px] text-kream-gray">{om.location}</p>
-                          </div>
+                      {/* Date & Time + Price */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-1">
+                          <Calendar size={12} className="text-[#333] shrink-0" />
+                          <p className="text-[11px] text-kream-gray">
+                            {month}/{day}({dayOfWeek}) {om.time}
+                          </p>
+                          {om.isRecurring && (
+                            <span className="text-[11px] text-kream-lightgray">
+                              · {om.recurringNote}
+                            </span>
+                          )}
                         </div>
-                        <span className="text-sm font-bold text-kream-black shrink-0 ml-2">
+                        <span className="text-sm font-bold text-[#111] shrink-0 ml-2">
                           {om.price}
                         </span>
                       </div>
 
-                      {/* Date & Time */}
-                      <div className="flex items-center gap-1 mt-1.5">
-                        <Calendar size={12} className="text-kream-gray shrink-0" />
-                        <p className="text-[11px] text-kream-gray">
-                          {month}/{day}({dayOfWeek}) {om.time}
-                        </p>
-                        {om.isRecurring && (
-                          <span className="text-[10px] text-kream-lightgray ml-1">
-                            ({om.recurringNote})
-                          </span>
-                        )}
-                      </div>
-
                       {/* Capacity */}
                       <div className="flex items-center gap-1.5 mt-2">
-                        <Users size={12} className="text-kream-gray shrink-0" />
+                        <Users size={12} className="text-[#333] shrink-0" />
                         <div className="flex-1">
                           <div className="h-1.5 bg-kream-bg rounded-full overflow-hidden">
                             <div
@@ -224,7 +219,7 @@ export default function OpenMatPage() {
                             />
                           </div>
                         </div>
-                        <span className="text-[10px] text-kream-gray shrink-0">
+                        <span className="text-[11px] text-kream-gray shrink-0">
                           {om.registered}/{om.capacity}명
                         </span>
                       </div>

@@ -7,6 +7,8 @@
   --color-kream-border: #EBEBEB;
   --color-kream-red: #EF6253;
   --color-kream-black: #222222;
+  --color-kream-charcoal: #2D2D2D;
+  --color-kream-dark: #333333;
   --color-kream-gray: #999999;
   --color-kream-lightgray: #D5D5D5;
   --color-kream-green: #31B46E;
@@ -54,6 +56,31 @@ body {
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+/* Section header with left black accent bar */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: -0.02em;
+}
+.section-header::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 14px;
+  background: #222;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+/* Tight tracking for bold headings */
+h1, h2, h3 {
+  letter-spacing: -0.02em;
 }
 
 /* Bottom sheet backdrop */

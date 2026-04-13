@@ -21,9 +21,9 @@ export default function Button({
   const base = "inline-flex items-center justify-center font-semibold transition-all active:scale-[0.97] disabled:opacity-40 disabled:pointer-events-none";
 
   const variants = {
-    primary: "bg-kream-black text-white rounded-xl",
+    primary: "bg-[#222] text-white rounded-xl hover:bg-[#111] active:bg-[#000]",
     secondary: "bg-kream-bg text-kream-black rounded-xl",
-    outline: "bg-white text-kream-black border border-kream-border rounded-xl",
+    outline: "bg-white text-kream-black border border-[#222] rounded-xl",
     ghost: "bg-transparent text-kream-gray",
   };
 

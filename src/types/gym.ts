@@ -1,3 +1,14 @@
+export interface GymInstructor {
+  name: string;
+  title: string;
+  specialty: string;
+}
+
+export interface GymSchedule {
+  day: string;
+  classes: string[];
+}
+
 export interface Gym {
   id: string;
   name: string;
@@ -16,6 +27,11 @@ export interface Gym {
   phone?: string;
   instagram?: string;
   tags: string[];
+  description?: string;
+  facilities?: string[];
+  instructors?: GymInstructor[];
+  schedule?: GymSchedule[];
+  memberCount?: number;
 }
 
 export interface GymReview {

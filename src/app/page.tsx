@@ -15,19 +15,17 @@ import { Bell, ChevronRight, TrendingUp, CalendarDays, Users } from "lucide-reac
 import Link from "next/link";
 
 export default function Home() {
-  // Today's and upcoming open mats
   const upcomingOpenmats = openmats.slice(0, 4);
-  // Events for banner (non open-mat events)
   const bannerEvents = events.filter(e => e.category !== "open-mat").slice(0, 3);
 
   return (
     <AppShell>
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-white border-b border-kream-border">
+      <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_#E0E0E0]">
         <div className="flex items-center justify-between h-12 px-4">
-          <span className="text-lg font-bold text-kream-black">{APP_NAME}</span>
+          <span className="text-lg font-bold text-[#111] tracking-tight">{APP_NAME}</span>
           <button className="p-1.5 rounded-full hover:bg-kream-bg transition-colors">
-            <Bell size={20} className="text-kream-black" />
+            <Bell size={20} className="text-[#222]" />
           </button>
         </div>
       </header>
@@ -37,7 +35,7 @@ export default function Home() {
         <div className="flex items-center gap-3">
           <Avatar name={currentUser.name} size="lg" beltLevel={currentUser.beltLevel} />
           <div>
-            <p className="text-base font-semibold text-kream-black">
+            <p className="text-base font-semibold text-[#111] tracking-tight">
               안녕하세요, {currentUser.name}님
             </p>
             <BeltIndicator level={currentUser.beltLevel} stripes={currentUser.stripes} />
@@ -47,14 +45,14 @@ export default function Home() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-2.5">
           {[
-            { icon: TrendingUp, label: "이번 주 스파링", value: "0회" },
+            { icon: TrendingUp, label: "이번 주 스파링", value: "3회" },
             { icon: CalendarDays, label: "오픈매트 참여", value: "2회" },
             { icon: Users, label: "다가오는 오픈매트", value: `${upcomingOpenmats.length}건` },
           ].map((stat) => (
             <Card key={stat.label} padding="sm" className="text-center">
-              <stat.icon size={18} className="text-kream-gray mx-auto mb-1.5" />
-              <p className="text-lg font-bold text-kream-black">{stat.value}</p>
-              <p className="text-[10px] text-kream-gray mt-0.5">{stat.label}</p>
+              <stat.icon size={18} className="text-[#222] mx-auto mb-1.5" />
+              <p className="text-lg font-bold text-[#111]">{stat.value}</p>
+              <p className="text-[11px] text-kream-gray mt-0.5">{stat.label}</p>
             </Card>
           ))}
         </div>
@@ -62,9 +60,9 @@ export default function Home() {
         {/* Upcoming Open Mats */}
         <section>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-bold text-kream-black">추천 오픈매트</h2>
-            <Link href="/openmat" className="flex items-center text-xs text-kream-gray">
-              더보기 <ChevronRight size={14} />
+            <h2 className="section-header">추천 오픈매트</h2>
+            <Link href="/openmat" className="flex items-center gap-0.5 text-xs font-semibold text-[#333]">
+              전체보기 <ChevronRight size={13} strokeWidth={2.5} />
             </Link>
           </div>
           <div className="space-y-2.5">
@@ -84,14 +82,14 @@ export default function Home() {
                       </div>
                       {/* Info */}
                       <div className="flex-1 min-w-0 p-3">
-                        <p className="text-sm font-semibold text-kream-black truncate">{om.gymName}</p>
+                        <p className="text-sm font-bold text-[#111] truncate tracking-tight">{om.gymName}</p>
                         <p className="text-[11px] text-kream-gray mt-0.5">
                           {month}/{day}({dayOfWeek}) · {om.time}
                         </p>
                         <p className="text-[11px] text-kream-gray">{om.location}</p>
                         <div className="flex items-center justify-between mt-2">
-                          <span className="text-xs font-semibold text-kream-black">{om.price}</span>
-                          <span className="text-[10px] text-kream-gray">
+                          <span className="text-xs font-bold text-[#111]">{om.price}</span>
+                          <span className="text-[11px] text-kream-gray">
                             {om.registered}/{om.capacity}명
                           </span>
                         </div>
@@ -118,9 +116,9 @@ export default function Home() {
         {/* Event Banners */}
         <section>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-bold text-kream-black">이벤트</h2>
-            <Link href="/events" className="flex items-center text-xs text-kream-gray">
-              더보기 <ChevronRight size={14} />
+            <h2 className="section-header">이벤트</h2>
+            <Link href="/events" className="flex items-center gap-0.5 text-xs font-semibold text-[#333]">
+              전체보기 <ChevronRight size={13} strokeWidth={2.5} />
             </Link>
           </div>
           <div className="flex gap-2.5 overflow-x-auto hide-scrollbar -mx-4 px-4">
@@ -135,7 +133,7 @@ export default function Home() {
               const day = dateObj.getDate();
               return (
                 <Link key={ev.id} href={`/events/${ev.id}`} className="shrink-0">
-                  <div className="w-[280px] h-[140px] rounded-2xl overflow-hidden relative">
+                  <div className="w-[280px] h-[140px] rounded-xl overflow-hidden relative">
                     <img src={ev.imageUrl} alt={ev.title} className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     <div className="absolute top-3 left-3">
