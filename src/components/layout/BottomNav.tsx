@@ -2,14 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, Users, MapPin, Calendar, User } from "lucide-react";
+import { Home, Calendar, User } from "lucide-react";
 
 const tabs = [
   { label: "홈", href: "/", icon: Home },
-  { label: "매칭", href: "/matching", icon: Users },
-  { label: "도장", href: "/gyms", icon: MapPin },
-  { label: "이벤트", href: "/events", icon: Calendar },
-  { label: "MY", href: "/profile", icon: User },
+  { label: "오픈매트", href: "/openmat", icon: Calendar },
+  { label: "마이", href: "/profile", icon: User },
 ];
 
 export default function BottomNav() {
