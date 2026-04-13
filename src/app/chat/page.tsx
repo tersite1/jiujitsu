@@ -20,7 +20,7 @@ export default function ChatPage() {
 
   return (
     <AppShell>
-      <TopBar title="채팅" showLogo />
+      <TopBar title="채팅" />
 
       <div className="px-4 pt-4 pb-4 space-y-5">
         {/* Active Reservations */}

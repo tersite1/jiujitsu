@@ -21,14 +21,14 @@ export default function Home() {
   return (
     <AppShell>
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_#E0E0E0]">
+      <header className="sticky top-0 z-40 bg-[#222]">
         <div className="flex items-center justify-between h-12 px-4">
-          <div className="flex items-center gap-2">
-            <img src="/logo.svg" alt="매치핏" className="h-6 w-auto" />
-            <span className="text-lg font-bold text-[#111] tracking-tight">{APP_NAME}</span>
+          <div className="flex items-center gap-1.5">
+            <img src="/logo.png" alt="매치핏" className="h-7 w-auto" />
+            <span className="text-lg font-bold text-white tracking-tight">{APP_NAME}</span>
           </div>
-          <button className="p-1.5 rounded-full hover:bg-kream-bg transition-colors">
-            <Bell size={20} className="text-[#222]" />
+          <button className="p-1.5 rounded-full hover:bg-white/10 transition-colors">
+            <Bell size={20} className="text-white" />
           </button>
         </div>
       </header>

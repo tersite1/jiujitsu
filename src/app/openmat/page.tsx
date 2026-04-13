@@ -68,76 +68,79 @@ export default function OpenMatPage() {
       <TopBar title="오픈매트" />
 
       <div className="px-4 pt-3 pb-4">
-        {/* Search */}
-        <div className="relative mb-3">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-kream-gray" />
-          <input
-            type="text"
-            placeholder="도장, 지역 검색..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-10 pl-9 pr-4 bg-kream-bg rounded-xl text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[#222]"
-          />
-        </div>
+        {/* Search + Filters (dark zone) */}
+        <div className="bg-[#2D2D2D] -mx-4 px-4 pt-3 pb-3 mb-4">
+          {/* Search */}
+          <div className="relative mb-2.5">
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40" />
+            <input
+              type="text"
+              placeholder="도장, 지역 검색..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full h-10 pl-9 pr-4 bg-white/10 rounded-xl text-sm text-white placeholder:text-white/30 outline-none focus:ring-1 focus:ring-white/30"
+            />
+          </div>
 
-        {/* Location Toggle */}
-        <div className="flex gap-1.5 mb-2.5">
-          {([
-            { key: "all" as LocationFilter, label: "전체" },
-            { key: "domestic" as LocationFilter, label: "국내" },
-            { key: "international" as LocationFilter, label: "해외" },
-          ]).map((opt) => (
-            <button
-              key={opt.key}
-              onClick={() => setLocation(opt.key)}
-              className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
-                location === opt.key
-                  ? "bg-[#222] text-white"
-                  : "bg-kream-bg text-kream-black"
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
+          {/* Location Toggle */}
+          <div className="flex gap-1.5 mb-2">
+            {([
+              { key: "all" as LocationFilter, label: "전체" },
+              { key: "domestic" as LocationFilter, label: "국내" },
+              { key: "international" as LocationFilter, label: "해외" },
+            ]).map((opt) => (
+              <button
+                key={opt.key}
+                onClick={() => setLocation(opt.key)}
+                className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
+                  location === opt.key
+                    ? "bg-white text-[#222]"
+                    : "bg-white/10 text-white/60"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
 
-        {/* Time Range Toggle */}
-        <div className="flex gap-1.5 mb-2.5">
-          {([
-            { key: "all" as TimeFilter, label: "전체" },
-            { key: "today" as TimeFilter, label: "오늘" },
-            { key: "week" as TimeFilter, label: "이번 주" },
-            { key: "month" as TimeFilter, label: "이번 달" },
-          ]).map((opt) => (
-            <button
-              key={opt.key}
-              onClick={() => setTimeRange(opt.key)}
-              className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
-                timeRange === opt.key
-                  ? "bg-[#222] text-white"
-                  : "bg-kream-bg text-kream-black"
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
+          {/* Time Range Toggle */}
+          <div className="flex gap-1.5 mb-2">
+            {([
+              { key: "all" as TimeFilter, label: "전체" },
+              { key: "today" as TimeFilter, label: "오늘" },
+              { key: "week" as TimeFilter, label: "이번 주" },
+              { key: "month" as TimeFilter, label: "이번 달" },
+            ]).map((opt) => (
+              <button
+                key={opt.key}
+                onClick={() => setTimeRange(opt.key)}
+                className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
+                  timeRange === opt.key
+                    ? "bg-white text-[#222]"
+                    : "bg-white/10 text-white/60"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
 
-        {/* Tag Filters */}
-        <div className="flex gap-1.5 overflow-x-auto hide-scrollbar mb-4">
-          {tagFilters.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => toggleTag(tag)}
-              className={`shrink-0 px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
-                selectedTags.has(tag)
-                  ? "bg-[#222] text-white"
-                  : "bg-kream-bg text-kream-black"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
+          {/* Tag Filters */}
+          <div className="flex gap-1.5 overflow-x-auto hide-scrollbar">
+            {tagFilters.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => toggleTag(tag)}
+                className={`shrink-0 px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
+                  selectedTags.has(tag)
+                    ? "bg-white text-[#222]"
+                    : "bg-white/10 text-white/60"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Results Count */}

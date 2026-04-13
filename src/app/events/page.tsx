@@ -40,7 +40,7 @@ export default function EventsPage() {
       <TopBar title="이벤트" />
 
       {/* Category Tabs */}
-      <div className="border-b border-[#E0E0E0]">
+      <div className="bg-[#2D2D2D]">
         <div className="flex overflow-x-auto hide-scrollbar">
           {tabs.map((tab) => (
             <button
@@ -48,13 +48,13 @@ export default function EventsPage() {
               onClick={() => setActiveTab(tab.key)}
               className={`shrink-0 px-4 py-3 text-sm font-medium relative transition-colors ${
                 activeTab === tab.key
-                  ? "text-[#111] font-bold"
-                  : "text-kream-gray"
+                  ? "text-white font-bold"
+                  : "text-white/40"
               }`}
             >
               {tab.label}
               {activeTab === tab.key && (
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#222]" />
+                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white" />
               )}
             </button>
           ))}
