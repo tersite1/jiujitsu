@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" fill="none">
+  <!-- Left belt end (going top-right to bottom-left) -->
+  <path d="M8 18 L62 42 L62 52 L8 28Z" fill="#333" stroke="#555" stroke-width="1"/>
+  <path d="M8 18 L8 28 L2 25 L2 15Z" fill="#2a2a2a" stroke="#555" stroke-width="0.5"/>
+
+  <!-- Right belt end (going top-left to bottom-right) -->
+  <path d="M112 18 L58 42 L58 52 L112 28Z" fill="#333" stroke="#555" stroke-width="1"/>
+  <path d="M112 18 L112 28 L118 25 L118 15Z" fill="#2a2a2a" stroke="#555" stroke-width="0.5"/>
+
+  <!-- Knot center -->
+  <path d="M50 35 Q60 28 70 35 Q65 45 60 42 Q55 45 50 35Z" fill="#2a2a2a" stroke="#555" stroke-width="1"/>
+  <path d="M52 36 Q60 31 68 36 Q64 43 60 41 Q56 43 52 36Z" fill="#222"/>
+
+  <!-- Left hanging belt piece -->
+  <path d="M52 42 L46 70 L54 70 L58 42Z" fill="#333" stroke="#555" stroke-width="1"/>
+
+  <!-- Right hanging belt piece -->
+  <path d="M62 42 L66 70 L74 70 L68 42Z" fill="#333" stroke="#555" stroke-width="1"/>
+
+  <!-- Red stripes on left hanging piece (coral belt indicator) -->
+  <rect x="47.5" y="52" width="5.5" height="2" rx="0.5" fill="#D44" transform="rotate(-5 50 53)"/>
+  <rect x="48" y="56" width="5.5" height="2" rx="0.5" fill="#fff" transform="rotate(-5 50 57)"/>
+  <rect x="48.5" y="60" width="5.5" height="2" rx="0.5" fill="#D44" transform="rotate(-5 50 61)"/>
+  <rect x="49" y="64" width="5.5" height="2" rx="0.5" fill="#fff" transform="rotate(-5 50 65)"/>
+</svg>

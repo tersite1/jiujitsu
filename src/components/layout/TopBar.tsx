@@ -7,10 +7,11 @@ import { ReactNode } from "react";
 interface TopBarProps {
   title: string;
   showBack?: boolean;
+  showLogo?: boolean;
   rightAction?: ReactNode;
 }
 
-export default function TopBar({ title, showBack, rightAction }: TopBarProps) {
+export default function TopBar({ title, showBack, showLogo, rightAction }: TopBarProps) {
   const router = useRouter();
 
   return (
@@ -25,10 +26,18 @@ export default function TopBar({ title, showBack, rightAction }: TopBarProps) {
               <ChevronLeft size={22} strokeWidth={2.5} className="text-[#111]" />
             </button>
           )}
+          {showLogo && (
+            <img src="/logo.svg" alt="매치핏" className="h-6 w-auto" />
+          )}
         </div>
-        <h1 className="text-[15px] font-bold text-[#111] absolute left-1/2 -translate-x-1/2 tracking-tight">
-          {title}
-        </h1>
+        {!showLogo && (
+          <h1 className="text-[15px] font-bold text-[#111] absolute left-1/2 -translate-x-1/2 tracking-tight">
+            {title}
+          </h1>
+        )}
+        {showLogo && (
+          <span className="text-[15px] font-bold text-[#111] tracking-tight">{title}</span>
+        )}
         <div className="min-w-[40px] flex justify-end">{rightAction}</div>
       </div>
     </header>

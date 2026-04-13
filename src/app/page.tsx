@@ -23,7 +23,10 @@ export default function Home() {
       {/* Header */}
       <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_#E0E0E0]">
         <div className="flex items-center justify-between h-12 px-4">
-          <span className="text-lg font-bold text-[#111] tracking-tight">{APP_NAME}</span>
+          <div className="flex items-center gap-2">
+            <img src="/logo.svg" alt="매치핏" className="h-6 w-auto" />
+            <span className="text-lg font-bold text-[#111] tracking-tight">{APP_NAME}</span>
+          </div>
           <button className="p-1.5 rounded-full hover:bg-kream-bg transition-colors">
             <Bell size={20} className="text-[#222]" />
           </button>
