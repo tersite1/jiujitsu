@@ -80,68 +80,71 @@ export default function OpenMatPage() {
           />
         </div>
 
-        {/* Location Toggle */}
-        <div className="flex gap-1.5 mb-2.5">
-          {([
-            { key: "all" as LocationFilter, label: "전체" },
-            { key: "domestic" as LocationFilter, label: "국내" },
-            { key: "international" as LocationFilter, label: "해외" },
-          ]).map((opt) => (
-            <button
-              key={opt.key}
-              onClick={() => setLocation(opt.key)}
-              className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
-                location === opt.key
-                  ? "bg-[#222] text-white"
-                  : "bg-kream-bg text-kream-black"
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
+        {/* Filters (unified zone) */}
+        <div className="space-y-2">
+          {/* Location Toggle */}
+          <div className="flex gap-1.5">
+            {([
+              { key: "all" as LocationFilter, label: "전체" },
+              { key: "domestic" as LocationFilter, label: "국내" },
+              { key: "international" as LocationFilter, label: "해외" },
+            ]).map((opt) => (
+              <button
+                key={opt.key}
+                onClick={() => setLocation(opt.key)}
+                className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
+                  location === opt.key
+                    ? "bg-[#222] text-white"
+                    : "bg-kream-bg text-kream-black"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
 
-        {/* Time Range Toggle */}
-        <div className="flex gap-1.5 mb-2.5">
-          {([
-            { key: "all" as TimeFilter, label: "전체" },
-            { key: "today" as TimeFilter, label: "오늘" },
-            { key: "week" as TimeFilter, label: "이번 주" },
-            { key: "month" as TimeFilter, label: "이번 달" },
-          ]).map((opt) => (
-            <button
-              key={opt.key}
-              onClick={() => setTimeRange(opt.key)}
-              className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
-                timeRange === opt.key
-                  ? "bg-[#222] text-white"
-                  : "bg-kream-bg text-kream-black"
-              }`}
-            >
-              {opt.label}
-            </button>
-          ))}
-        </div>
+          {/* Time Range Toggle */}
+          <div className="flex gap-1.5">
+            {([
+              { key: "all" as TimeFilter, label: "전체" },
+              { key: "today" as TimeFilter, label: "오늘" },
+              { key: "week" as TimeFilter, label: "이번 주" },
+              { key: "month" as TimeFilter, label: "이번 달" },
+            ]).map((opt) => (
+              <button
+                key={opt.key}
+                onClick={() => setTimeRange(opt.key)}
+                className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
+                  timeRange === opt.key
+                    ? "bg-[#222] text-white"
+                    : "bg-kream-bg text-kream-black"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
 
-        {/* Tag Filters */}
-        <div className="flex gap-1.5 overflow-x-auto hide-scrollbar mb-4">
-          {tagFilters.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => toggleTag(tag)}
-              className={`shrink-0 px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
-                selectedTags.has(tag)
-                  ? "bg-[#222] text-white"
-                  : "bg-kream-bg text-kream-black"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
+          {/* Tag Filters */}
+          <div className="flex gap-1.5 overflow-x-auto hide-scrollbar">
+            {tagFilters.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => toggleTag(tag)}
+                className={`shrink-0 px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
+                  selectedTags.has(tag)
+                    ? "bg-[#222] text-white"
+                    : "bg-kream-bg text-kream-black"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Results Count */}
-        <p className="text-sm text-kream-gray border-t border-kream-border pt-3 mb-2">
+        <p className="text-sm text-kream-gray border-t border-kream-border mt-4 pt-3 mb-2">
           <span className="font-bold text-[#111]">{filtered.length}건</span>의 오픈매트
         </p>
 

@@ -169,7 +169,7 @@ export default function ChatDetailPage() {
       </div>
 
       {/* Input Bar */}
-      <div className="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-[#E0E0E0] z-30 p-3">
+      <div className="fixed bottom-[calc(4rem+env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-[#E0E0E0] z-30 p-3">
         <div className="flex items-center gap-2">
           <input
             type="text"
