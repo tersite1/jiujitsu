@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import AppShell from "@/components/layout/AppShell";
 import TopBar from "@/components/layout/TopBar";
 import Card from "@/components/shared/Card";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import Toast from "@/components/shared/Toast";
+import PaymentSheet from "@/components/shared/PaymentSheet";
 import { events } from "@/data/mock-events";
 import { EVENT_CATEGORY_LABELS } from "@/types/event";
 import { getProgressPercent } from "@/lib/utils";
@@ -24,7 +25,9 @@ const mockParticipantColors = ["#EF6253", "#1E88E5", "#31B46E", "#FF9800", "#8E2
 
 export default function EventDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const [showToast, setShowToast] = useState(false);
+  const [showPayment, setShowPayment] = useState(false);
 
   const event = events.find((e) => e.id === params.id);
 
@@ -165,14 +168,27 @@ export default function EventDetailPage() {
           size="lg"
           variant="primary"
           fullWidth
-          onClick={() => setShowToast(true)}
+          onClick={() => setShowPayment(true)}
         >
           참가 신청하기 · {event.price}
         </Button>
       </div>
 
+      <PaymentSheet
+        isOpen={showPayment}
+        onClose={() => setShowPayment(false)}
+        amount={event.price}
+        title={event.title}
+        subtitle={`${dateStr} · ${event.time}`}
+        onSuccess={() => {
+          setShowPayment(false);
+          setShowToast(true);
+          setTimeout(() => router.push("/events"), 600);
+        }}
+      />
+
       <Toast
-        message="참가 신청이 완료되었습니다!"
+        message="참가 신청이 완료되었어요"
         isVisible={showToast}
         onHide={() => setShowToast(false)}
       />

@@ -11,12 +11,20 @@ import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import Card from "@/components/shared/Card";
 import Toast from "@/components/shared/Toast";
+import ReviewSheet from "@/components/shared/ReviewSheet";
+import RatingStars from "@/components/shared/RatingStars";
 import { practitioners } from "@/data/mock-practitioners";
 import { WEIGHT_LABELS } from "@/types/common";
+import { Star } from "lucide-react";
+
+type PartnerReview = { rating: number; content: string; date: string };
 
 export default function PractitionerDetailPage() {
   const params = useParams();
   const [showToast, setShowToast] = useState(false);
+  const [toastMsg, setToastMsg] = useState("매칭 요청을 보냈어요");
+  const [showReviewSheet, setShowReviewSheet] = useState(false);
+  const [partnerReview, setPartnerReview] = useState<PartnerReview | null>(null);
 
   const practitioner = practitioners.find((p) => p.id === params.id);
 
@@ -93,6 +101,46 @@ export default function PractitionerDetailPage() {
           <h3 className="text-sm font-bold text-kream-black mb-2">선호 강도</h3>
           <IntensityBadge intensity={p.intensityPreference} />
         </div>
+
+        {/* Sparring review (post-match) */}
+        <div>
+          <h3 className="text-sm font-bold text-kream-black mb-2">스파링 후 평가</h3>
+          {partnerReview ? (
+            <Card>
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs text-kream-gray">내가 남긴 평가 · {partnerReview.date}</span>
+                <RatingStars rating={partnerReview.rating} size={14} />
+              </div>
+              <p className="text-sm text-kream-black leading-relaxed">{partnerReview.content}</p>
+              <button
+                type="button"
+                onClick={() => setShowReviewSheet(true)}
+                className="mt-3 text-[11px] font-semibold text-[var(--color-accent)] hover:underline"
+              >
+                평가 다시 작성
+              </button>
+            </Card>
+          ) : (
+            <Card>
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-coral-soft)] flex items-center justify-center shrink-0">
+                  <Star size={18} className="text-[var(--color-accent)]" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold text-kream-black">스파링했다면 평가를 남겨주세요</p>
+                  <p className="text-[11px] text-kream-gray mt-0.5">강도·페어플레이·매너에 대한 솔직한 후기는 다음 매칭의 신뢰가 됩니다.</p>
+                  <button
+                    type="button"
+                    onClick={() => setShowReviewSheet(true)}
+                    className="mt-2.5 text-xs font-semibold text-white bg-[var(--color-accent)] hover:bg-[var(--color-coral-deep)] px-3 py-1.5 rounded-lg active:scale-95 transition"
+                  >
+                    평가 작성하기
+                  </button>
+                </div>
+              </div>
+            </Card>
+          )}
+        </div>
       </div>
 
       {/* Sticky Bottom CTA */}
@@ -101,15 +149,36 @@ export default function PractitionerDetailPage() {
           size="lg"
           variant="primary"
           fullWidth
-          onClick={() => setShowToast(true)}
+          onClick={() => {
+            setToastMsg(`${p.name}님에게 매칭 요청을 보냈어요`);
+            setShowToast(true);
+          }}
           disabled={!p.isAvailable}
         >
           매칭 요청하기
         </Button>
       </div>
 
+      <ReviewSheet
+        isOpen={showReviewSheet}
+        onClose={() => setShowReviewSheet(false)}
+        title="스파링 파트너 평가"
+        subjectName={p.name}
+        placeholder="강도, 페어플레이, 매너 등 솔직한 평가를 남겨주세요."
+        onSubmit={(rating, content) => {
+          setPartnerReview({
+            rating,
+            content,
+            date: new Date().toISOString().slice(0, 10),
+          });
+          setShowReviewSheet(false);
+          setToastMsg("평가가 등록되었어요");
+          setShowToast(true);
+        }}
+      />
+
       <Toast
-        message={`${p.name}님에게 매칭 요청을 보냈습니다!`}
+        message={toastMsg}
         isVisible={showToast}
         onHide={() => setShowToast(false)}
       />

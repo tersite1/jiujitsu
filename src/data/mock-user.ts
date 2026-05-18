@@ -15,7 +15,7 @@ export const currentUser: Practitioner = {
   intensityPreference: 'medium',
   preferredSchedule: ['평일 저녁', '주말 오전'],
   bio: '다양한 스타일의 수련자와 스파링하며 실력을 키우고 싶습니다. 특히 가드 플레이에 관심이 많습니다. 클로즈드 가드에서 스윕과 서브미션 연결을 집중 연습 중입니다.',
-  avatarUrl: '/avatars/user.svg',
+  avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&q=80&fit=crop&crop=face',
   isAvailable: true,
 };
 

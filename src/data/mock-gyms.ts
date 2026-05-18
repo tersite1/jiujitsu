@@ -4,7 +4,7 @@ export const gyms: Gym[] = [
   {
     id: 'g1', name: '그래플링 아카데미 강남', nameEn: 'Grappling Academy Gangnam',
     country: '한국', city: '서울 강남구', address: '서울 강남구 역삼동 123-45',
-    imageUrl: '/gyms/gym1.svg', rating: 4.8, reviewCount: 124,
+    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&fit=crop', rating: 4.8, reviewCount: 124,
     dropInAvailable: true, dropInPrice: '30,000원',
     languageSupport: ['한국어', 'English'], atmosphere: ['친절한', '체계적', '초보 환영'],
     hours: '평일 06:00-22:00 / 주말 09:00-18:00', phone: '02-1234-5678',
@@ -25,7 +25,7 @@ export const gyms: Gym[] = [
   {
     id: 'g2', name: '코리안탑팀 송파', nameEn: 'Korean Top Team Songpa',
     country: '한국', city: '서울 송파구', address: '서울 송파구 잠실동 234-56',
-    imageUrl: '/gyms/gym2.svg', rating: 4.6, reviewCount: 89,
+    imageUrl: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=80&fit=crop', rating: 4.6, reviewCount: 89,
     dropInAvailable: true, dropInPrice: '35,000원',
     languageSupport: ['한국어'], atmosphere: ['경쟁적', '체계적', '대회 준비'],
     hours: '평일 07:00-22:00 / 주말 10:00-17:00', phone: '02-2345-6789',
@@ -45,7 +45,7 @@ export const gyms: Gym[] = [
   {
     id: 'g3', name: 'Carpe Diem Tokyo', nameEn: 'Carpe Diem Tokyo',
     country: '일본', city: '도쿄 미나토구', address: '東京都港区三田2-14-7',
-    imageUrl: '/gyms/gym3.svg', rating: 4.9, reviewCount: 256,
+    imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&fit=crop', rating: 4.9, reviewCount: 256,
     dropInAvailable: true, dropInPrice: '¥3,000',
     languageSupport: ['日本語', 'English', 'Português'],
     atmosphere: ['프렌들리', '국제적', '기술 중심'],
@@ -65,7 +65,7 @@ export const gyms: Gym[] = [
   {
     id: 'g4', name: 'Alliance São Paulo', nameEn: 'Alliance São Paulo',
     country: '브라질', city: '상파울루', address: 'R. Funchal, 129 - Vila Olímpia',
-    imageUrl: '/gyms/gym4.svg', rating: 4.7, reviewCount: 312,
+    imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&q=80&fit=crop', rating: 4.7, reviewCount: 312,
     dropInAvailable: true, dropInPrice: 'R$80',
     languageSupport: ['Português', 'English'],
     atmosphere: ['열정적', '경쟁적', '월드클래스'],
@@ -86,7 +86,7 @@ export const gyms: Gym[] = [
   {
     id: 'g5', name: '홍대 주짓수', nameEn: 'Hongdae Jiu-Jitsu',
     country: '한국', city: '서울 마포구', address: '서울 마포구 서교동 345-67',
-    imageUrl: '/gyms/gym5.svg', rating: 4.5, reviewCount: 67,
+    imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&fit=crop', rating: 4.5, reviewCount: 67,
     dropInAvailable: true, dropInPrice: '25,000원',
     languageSupport: ['한국어', 'English'], atmosphere: ['자유로운', '친절한', '초보 환영'],
     hours: '평일 10:00-22:00 / 주말 11:00-18:00',
@@ -106,7 +106,7 @@ export const gyms: Gym[] = [
   {
     id: 'g6', name: 'ATOS Bangkok', nameEn: 'ATOS Bangkok',
     country: '태국', city: '방콕', address: '123 Sukhumvit Soi 33, Bangkok',
-    imageUrl: '/gyms/gym6.svg', rating: 4.8, reviewCount: 178,
+    imageUrl: 'https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&q=80&fit=crop', rating: 4.8, reviewCount: 178,
     dropInAvailable: true, dropInPrice: '฿500',
     languageSupport: ['English', 'ไทย'], atmosphere: ['국제적', '프렌들리', '기술 중심'],
     hours: '매일 08:00-21:00',

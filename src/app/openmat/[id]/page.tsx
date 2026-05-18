@@ -8,6 +8,7 @@ import Card from "@/components/shared/Card";
 import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import Toast from "@/components/shared/Toast";
+import PaymentSheet from "@/components/shared/PaymentSheet";
 import { openmats } from "@/data/mock-openmats";
 import { chatRooms } from "@/data/mock-chats";
 import { getProgressPercent } from "@/lib/utils";
@@ -17,6 +18,7 @@ export default function OpenMatDetailPage() {
   const params = useParams();
   const router = useRouter();
   const [showToast, setShowToast] = useState(false);
+  const [showPayment, setShowPayment] = useState(false);
 
   const om = openmats.find((o) => o.id === params.id);
 
@@ -165,21 +167,28 @@ export default function OpenMatDetailPage() {
           fullWidth
           onClick={() => {
             if (isFull) return;
-            setShowToast(true);
-            // Navigate to chat room for this gym after brief delay
-            const chatRoom = chatRooms.find((r) => r.gymId === om.gymId);
-            setTimeout(() => {
-              if (chatRoom) {
-                router.push(`/chat/${chatRoom.id}`);
-              } else {
-                router.push("/chat");
-              }
-            }, 1200);
+            setShowPayment(true);
           }}
         >
           {isFull ? "마감되었습니다" : `참가 신청하기 · ${om.price}`}
         </Button>
       </div>
+
+      <PaymentSheet
+        isOpen={showPayment}
+        onClose={() => setShowPayment(false)}
+        amount={om.price}
+        title={`${om.gymName} 오픈매트`}
+        subtitle={`${dateStr} (${dayOfWeek}) · ${om.time}`}
+        onSuccess={() => {
+          setShowPayment(false);
+          setShowToast(true);
+          const chatRoom = chatRooms.find((r) => r.gymId === om.gymId);
+          setTimeout(() => {
+            router.push(chatRoom ? `/chat/${chatRoom.id}` : "/chat");
+          }, 600);
+        }}
+      />
 
       <Toast
         message="참가 신청 완료! 채팅방으로 이동합니다..."

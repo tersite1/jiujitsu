@@ -7,7 +7,7 @@ export const practitioners: Practitioner[] = [
     experience: '2년 6개월', trainFrequency: '주 3회', intensityPreference: 'light',
     preferredSchedule: ['평일 저녁', '주말 오후'],
     bio: '가볍게 기술 연습 위주로 스파링하고 싶어요. 하프가드를 주로 씁니다.',
-    avatarUrl: '/avatars/p1.svg', isAvailable: true,
+    avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&q=80&fit=crop&crop=face', isAvailable: true,
   },
   {
     id: 'p2', name: '이준호', age: 31, beltLevel: 'white', stripes: 4,
@@ -15,7 +15,7 @@ export const practitioners: Practitioner[] = [
     experience: '1년 2개월', trainFrequency: '주 5회', intensityPreference: 'hard',
     preferredSchedule: ['평일 아침', '평일 저녁'],
     bio: '대회 준비 중입니다. 강한 스파링 환영합니다.',
-    avatarUrl: '/avatars/p2.svg', isAvailable: true,
+    avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&q=80&fit=crop&crop=face', isAvailable: true,
   },
   {
     id: 'p3', name: '최수빈', age: 29, beltLevel: 'blue', stripes: 2,
@@ -23,7 +23,7 @@ export const practitioners: Practitioner[] = [
     experience: '3년 1개월', trainFrequency: '주 4회', intensityPreference: 'medium',
     preferredSchedule: ['평일 저녁', '주말 오전'],
     bio: '포지셔널 스파링 좋아합니다. 다양한 체급 상대 환영.',
-    avatarUrl: '/avatars/p3.svg', isAvailable: true,
+    avatarUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&q=80&fit=crop&crop=face', isAvailable: true,
   },
   {
     id: 'p4', name: '정민지', age: 26, beltLevel: 'white', stripes: 2,
@@ -31,7 +31,7 @@ export const practitioners: Practitioner[] = [
     experience: '10개월', trainFrequency: '주 3회', intensityPreference: 'light',
     preferredSchedule: ['주말 오전', '주말 오후'],
     bio: '아직 초보지만 열심히 배우고 있어요! 같은 체급 수련자 찾습니다.',
-    avatarUrl: '/avatars/p4.svg', isAvailable: true,
+    avatarUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&q=80&fit=crop&crop=face', isAvailable: true,
   },
   {
     id: 'p5', name: '한동우', age: 34, beltLevel: 'purple', stripes: 0,
@@ -39,7 +39,7 @@ export const practitioners: Practitioner[] = [
     experience: '5년 2개월', trainFrequency: '주 4회', intensityPreference: 'medium',
     preferredSchedule: ['평일 저녁'],
     bio: '레그락 위주로 연습하고 있습니다. 다양한 벨트 수련자 환영.',
-    avatarUrl: '/avatars/p5.svg', isAvailable: true,
+    avatarUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&q=80&fit=crop&crop=face', isAvailable: true,
   },
   {
     id: 'p6', name: '김태현', age: 22, beltLevel: 'white', stripes: 1,
@@ -47,7 +47,7 @@ export const practitioners: Practitioner[] = [
     experience: '6개월', trainFrequency: '주 3회', intensityPreference: 'light',
     preferredSchedule: ['평일 저녁', '주말 오전'],
     bio: '완전 초보입니다. 기초 기술 같이 연습할 분 찾아요.',
-    avatarUrl: '/avatars/p6.svg', isAvailable: true,
+    avatarUrl: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&q=80&fit=crop&crop=face', isAvailable: true,
   },
   {
     id: 'p7', name: '오승민', age: 28, beltLevel: 'blue', stripes: 3,
@@ -55,7 +55,7 @@ export const practitioners: Practitioner[] = [
     experience: '2년 11개월', trainFrequency: '주 5회', intensityPreference: 'hard',
     preferredSchedule: ['평일 아침', '평일 저녁', '주말 오전'],
     bio: '대회 씬에서 활동 중. 인텐스한 롤링 좋아합니다.',
-    avatarUrl: '/avatars/p7.svg', isAvailable: false,
+    avatarUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&q=80&fit=crop&crop=face', isAvailable: false,
   },
   {
     id: 'p8', name: '양지은', age: 25, beltLevel: 'white', stripes: 3,
@@ -63,6 +63,6 @@ export const practitioners: Practitioner[] = [
     experience: '1년 4개월', trainFrequency: '주 4회', intensityPreference: 'medium',
     preferredSchedule: ['평일 저녁', '주말 오후'],
     bio: '작은 체구를 활용한 가드 플레이를 연습 중입니다.',
-    avatarUrl: '/avatars/p8.svg', isAvailable: true,
+    avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&q=80&fit=crop&crop=face', isAvailable: true,
   },
 ];

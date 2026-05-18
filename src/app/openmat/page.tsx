@@ -94,8 +94,8 @@ export default function OpenMatPage() {
                 onClick={() => setLocation(opt.key)}
                 className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
                   location === opt.key
-                    ? "bg-[#222] text-white"
-                    : "bg-kream-bg text-kream-black"
+                    ? "bg-[var(--color-accent)] text-white"
+                    : "bg-[var(--color-surface-raised)] border border-[var(--color-line)] text-[var(--color-ink-soft)]"
                 }`}
               >
                 {opt.label}
@@ -116,8 +116,8 @@ export default function OpenMatPage() {
                 onClick={() => setTimeRange(opt.key)}
                 className={`px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
                   timeRange === opt.key
-                    ? "bg-[#222] text-white"
-                    : "bg-kream-bg text-kream-black"
+                    ? "bg-[var(--color-accent)] text-white"
+                    : "bg-[var(--color-surface-raised)] border border-[var(--color-line)] text-[var(--color-ink-soft)]"
                 }`}
               >
                 {opt.label}
@@ -133,8 +133,8 @@ export default function OpenMatPage() {
                 onClick={() => toggleTag(tag)}
                 className={`shrink-0 px-3 py-1.5 rounded-[6px] text-xs font-medium transition-colors ${
                   selectedTags.has(tag)
-                    ? "bg-[#222] text-white"
-                    : "bg-kream-bg text-kream-black"
+                    ? "bg-[var(--color-accent)] text-white"
+                    : "bg-[var(--color-surface-raised)] border border-[var(--color-line)] text-[var(--color-ink-soft)]"
                 }`}
               >
                 {tag}

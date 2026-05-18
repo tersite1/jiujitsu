@@ -3,7 +3,7 @@ import { OpenMat } from '@/types/openmat';
 export const openmats: OpenMat[] = [
   {
     id: 'om1', gymId: 'g1', gymName: '그래플링 아카데미 강남',
-    gymImageUrl: '/gyms/gym1.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&fit=crop',
     date: '2026-04-13', time: '13:00-16:00',
     location: '서울 강남구', address: '서울 강남구 역삼동 123-45',
     price: '무료', capacity: 30, registered: 22,
@@ -13,7 +13,7 @@ export const openmats: OpenMat[] = [
   },
   {
     id: 'om2', gymId: 'g5', gymName: '홍대 주짓수',
-    gymImageUrl: '/gyms/gym5.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&fit=crop',
     date: '2026-04-13', time: '14:00-16:00',
     location: '서울 마포구', address: '서울 마포구 서교동 345-67',
     price: '무료', capacity: 20, registered: 12,
@@ -23,7 +23,7 @@ export const openmats: OpenMat[] = [
   },
   {
     id: 'om3', gymId: 'g2', gymName: '코리안탑팀 송파',
-    gymImageUrl: '/gyms/gym2.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=80&fit=crop',
     date: '2026-04-19', time: '15:00-18:00',
     location: '서울 송파구', address: '서울 송파구 잠실동 234-56',
     price: '10,000원', capacity: 40, registered: 31,
@@ -33,7 +33,7 @@ export const openmats: OpenMat[] = [
   },
   {
     id: 'om4', gymId: 'g1', gymName: '그래플링 아카데미 강남',
-    gymImageUrl: '/gyms/gym1.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&fit=crop',
     date: '2026-04-20', time: '13:00-16:00',
     location: '서울 강남구', address: '서울 강남구 역삼동 123-45',
     price: '무료', capacity: 30, registered: 18,
@@ -43,7 +43,7 @@ export const openmats: OpenMat[] = [
   },
   {
     id: 'om5', gymId: 'g3', gymName: 'Carpe Diem Tokyo',
-    gymImageUrl: '/gyms/gym3.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&fit=crop',
     date: '2026-04-20', time: '14:00-17:00',
     location: '도쿄 미나토구', address: '東京都港区三田2-14-7',
     price: '¥2,000', capacity: 25, registered: 20,
@@ -53,7 +53,7 @@ export const openmats: OpenMat[] = [
   },
   {
     id: 'om6', gymId: 'g6', gymName: 'ATOS Bangkok',
-    gymImageUrl: '/gyms/gym6.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&q=80&fit=crop',
     date: '2026-04-26', time: '10:00-13:00',
     location: '방콕', address: '123 Sukhumvit Soi 33, Bangkok',
     price: '฿300', capacity: 35, registered: 28,
@@ -63,7 +63,7 @@ export const openmats: OpenMat[] = [
   },
   {
     id: 'om7', gymId: 'g5', gymName: '홍대 주짓수',
-    gymImageUrl: '/gyms/gym5.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&fit=crop',
     date: '2026-04-26', time: '11:00-14:00',
     location: '서울 마포구', address: '서울 마포구 서교동 345-67',
     price: '무료', capacity: 25, registered: 8,
@@ -73,7 +73,7 @@ export const openmats: OpenMat[] = [
   },
   {
     id: 'om8', gymId: 'g4', gymName: 'Alliance São Paulo',
-    gymImageUrl: '/gyms/gym4.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=600&q=80&fit=crop',
     date: '2026-04-27', time: '09:00-12:00',
     location: '상파울루', address: 'R. Funchal, 129 - Vila Olímpia',
     price: 'R$50', capacity: 50, registered: 42,

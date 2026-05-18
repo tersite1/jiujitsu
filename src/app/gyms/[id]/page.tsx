@@ -9,7 +9,10 @@ import Badge from "@/components/shared/Badge";
 import Button from "@/components/shared/Button";
 import RatingStars from "@/components/shared/RatingStars";
 import Toast from "@/components/shared/Toast";
+import ReviewSheet from "@/components/shared/ReviewSheet";
 import { gyms, gymReviews } from "@/data/mock-gyms";
+import { currentUser } from "@/data/mock-user";
+import type { GymReview } from "@/types/gym";
 import { MapPin, Clock, DollarSign, Globe, Phone, Link as LinkIcon, Users, Dumbbell } from "lucide-react";
 
 const countryFlags: Record<string, string> = {
@@ -20,9 +23,12 @@ export default function GymDetailPage() {
   const params = useParams();
   const [showToast, setShowToast] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
+  const [showReviewSheet, setShowReviewSheet] = useState(false);
 
   const gym = gyms.find((g) => g.id === params.id);
-  const reviews = gymReviews.filter((r) => r.gymId === params.id);
+  const baseReviews = gymReviews.filter((r) => r.gymId === params.id);
+  const [userReviews, setUserReviews] = useState<GymReview[]>([]);
+  const reviews = [...userReviews, ...baseReviews];
 
   if (!gym) {
     return (
@@ -215,10 +221,7 @@ export default function GymDetailPage() {
             variant="outline"
             size="md"
             className="flex-1"
-            onClick={() => {
-              setToastMsg("리뷰 작성 페이지로 이동합니다");
-              setShowToast(true);
-            }}
+            onClick={() => setShowReviewSheet(true)}
           >
             리뷰 작성
           </Button>
@@ -235,6 +238,28 @@ export default function GymDetailPage() {
           </Button>
         </div>
       </div>
+
+      <ReviewSheet
+        isOpen={showReviewSheet}
+        onClose={() => setShowReviewSheet(false)}
+        title="도장 리뷰 작성"
+        subjectName={gym.name}
+        onSubmit={(rating, content) => {
+          const newReview: GymReview = {
+            id: `user-${Date.now()}`,
+            gymId: gym.id,
+            authorName: currentUser.name,
+            authorBelt: `${currentUser.beltLevel} ${currentUser.stripes}그랄`,
+            rating,
+            date: new Date().toISOString().slice(0, 10),
+            content,
+          };
+          setUserReviews((prev) => [newReview, ...prev]);
+          setShowReviewSheet(false);
+          setToastMsg("리뷰가 등록되었어요");
+          setShowToast(true);
+        }}
+      />
 
       <Toast message={toastMsg} isVisible={showToast} onHide={() => setShowToast(false)} />
     </AppShell>

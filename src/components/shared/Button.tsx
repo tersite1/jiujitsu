@@ -21,9 +21,9 @@ export default function Button({
   const base = "inline-flex items-center justify-center font-semibold transition-all active:scale-[0.97] disabled:opacity-40 disabled:pointer-events-none";
 
   const variants = {
-    primary: "bg-[#222] text-white rounded-xl hover:bg-[#111] active:bg-[#000]",
-    secondary: "bg-kream-bg text-kream-black rounded-xl",
-    outline: "bg-white text-kream-black border border-[#222] rounded-xl",
+    primary: "bg-[var(--color-coral)] text-white rounded-xl hover:bg-[var(--color-coral-deep)] active:bg-[var(--color-coral-deep)] shadow-[0_1px_0_rgba(196,66,31,0.4)]",
+    secondary: "bg-[var(--color-forest)] text-white rounded-xl hover:bg-[var(--color-forest-deep)] active:bg-[var(--color-forest-deep)]",
+    outline: "bg-white text-[var(--color-brand)] border border-[var(--color-brand)] rounded-xl hover:bg-[var(--color-forest-soft)]",
     ghost: "bg-transparent text-kream-gray",
   };
 

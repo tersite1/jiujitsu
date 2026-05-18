@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "매치핏 - 주짓수 매칭 플랫폼",
-  description: "스파링 파트너 매칭, 도장 찾기, 이벤트 허브",
+  title: "오스 (押忍) — 주짓수 매칭 플랫폼",
+  description: "스파링 파트너 매칭, 도장 찾기, 세미나 허브",
 };
 
 export const viewport: Viewport = {

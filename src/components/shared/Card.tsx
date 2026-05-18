@@ -13,7 +13,7 @@ export default function Card({ children, className, onClick, padding = "md" }: C
   return (
     <div
       className={cn(
-        "bg-white rounded-xl border border-[#E0E0E0]",
+        "bg-white rounded-xl border border-[var(--color-line)]",
         paddings[padding],
         onClick && "cursor-pointer active:scale-[0.99] transition-transform",
         className

@@ -31,7 +31,7 @@ export interface ChatMessage {
 export const chatRooms: ChatRoom[] = [
   {
     id: 'cr1', gymId: 'g1', gymName: '그래플링 아카데미 강남',
-    gymImageUrl: '/gyms/gym1.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&fit=crop',
     lastMessage: '일요일 오픈매트 참가 확정되었습니다!',
     lastMessageTime: '오후 2:30',
     unreadCount: 1,
@@ -42,7 +42,7 @@ export const chatRooms: ChatRoom[] = [
   },
   {
     id: 'cr2', gymId: 'g5', gymName: '홍대 주짓수',
-    gymImageUrl: '/gyms/gym5.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&fit=crop',
     lastMessage: '드랍인 비용은 25,000원입니다.',
     lastMessageTime: '오전 11:20',
     unreadCount: 0,
@@ -50,7 +50,7 @@ export const chatRooms: ChatRoom[] = [
   },
   {
     id: 'cr3', gymId: 'g2', gymName: '코리안탑팀 송파',
-    gymImageUrl: '/gyms/gym2.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=80&fit=crop',
     lastMessage: '토요일 No-Gi 오픈매트 신청 완료되었습니다.',
     lastMessageTime: '어제',
     unreadCount: 0,
@@ -61,7 +61,7 @@ export const chatRooms: ChatRoom[] = [
   },
   {
     id: 'cr4', gymId: 'g3', gymName: 'Carpe Diem Tokyo',
-    gymImageUrl: '/gyms/gym3.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80&fit=crop',
     lastMessage: 'Drop-in is welcome! See you on Sunday.',
     lastMessageTime: '4/10',
     unreadCount: 0,
@@ -72,7 +72,7 @@ export const chatRooms: ChatRoom[] = [
   },
   {
     id: 'cr5', gymId: 'g6', gymName: 'ATOS Bangkok',
-    gymImageUrl: '/gyms/gym6.svg',
+    gymImageUrl: 'https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&q=80&fit=crop',
     lastMessage: '숙소 연계 프로그램 안내 드립니다.',
     lastMessageTime: '4/8',
     unreadCount: 0,

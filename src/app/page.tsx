@@ -8,10 +8,9 @@ import Badge from "@/components/shared/Badge";
 import { currentUser } from "@/data/mock-user";
 import { openmats } from "@/data/mock-openmats";
 import { events } from "@/data/mock-events";
-import { APP_NAME } from "@/lib/constants";
 import { getProgressPercent } from "@/lib/utils";
 import { EVENT_CATEGORY_LABELS } from "@/types/event";
-import { Bell, ChevronRight, TrendingUp, CalendarDays, Users } from "lucide-react";
+import { Bell, MessageCircle, ChevronRight, TrendingUp, CalendarDays, Users } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
@@ -21,24 +20,30 @@ export default function Home() {
   return (
     <AppShell>
       {/* Header */}
-      <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_#E0E0E0]">
+      <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_var(--color-line)]">
         <div className="flex items-center justify-between h-12 px-4">
-          <div className="flex items-center gap-1.5">
-            <img src="/logo.png" alt="매치핏" className="h-7 w-auto" />
-            <span className="text-lg font-bold text-[#111] tracking-tight">{APP_NAME}</span>
+          <div className="flex items-center gap-2">
+            <img src="/logo.png" alt="" className="h-7 w-auto" />
+            <span className="text-[22px] font-black italic text-[#00533E] tracking-tight leading-none">Oss</span>
           </div>
-          <button className="p-1.5 rounded-full hover:bg-kream-bg transition-colors">
-            <Bell size={20} className="text-[#222]" />
-          </button>
+          <div className="flex items-center gap-1">
+            <Link href="/chat" className="p-1.5 rounded-full hover:bg-kream-bg transition-colors relative">
+              <MessageCircle size={20} className="text-[var(--color-ink-soft)]" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-[var(--color-accent)] rounded-full" />
+            </Link>
+            <button className="p-1.5 rounded-full hover:bg-kream-bg transition-colors">
+              <Bell size={20} className="text-[var(--color-ink-soft)]" />
+            </button>
+          </div>
         </div>
       </header>
 
       <div className="px-4 pt-5 pb-4 space-y-6">
         {/* Greeting */}
         <div className="flex items-center gap-3 pb-4 border-b border-kream-border">
-          <Avatar name={currentUser.name} size="lg" beltLevel={currentUser.beltLevel} />
+          <Avatar name={currentUser.name} src={currentUser.avatarUrl} size="lg" beltLevel={currentUser.beltLevel} />
           <div>
-            <p className="text-base font-semibold text-[#111] tracking-tight">
+            <p className="text-base font-semibold text-[var(--color-ink)] tracking-tight">
               안녕하세요, {currentUser.name}님
             </p>
             <BeltIndicator level={currentUser.beltLevel} stripes={currentUser.stripes} />
@@ -53,9 +58,9 @@ export default function Home() {
             { icon: Users, label: "다가오는 오픈매트", value: `${upcomingOpenmats.length}건` },
           ].map((stat) => (
             <Card key={stat.label} padding="sm" className="text-center">
-              <stat.icon size={18} className="text-[#222] mx-auto mb-1.5" />
-              <p className="text-lg font-bold text-[#111]">{stat.value}</p>
-              <p className="text-[11px] text-kream-gray mt-0.5">{stat.label}</p>
+              <stat.icon size={16} className="text-[#00533E] mx-auto mb-1" />
+              <p className="text-lg font-black text-[#161512] leading-tight">{stat.value}</p>
+              <p className="text-[10px] text-[#8B8578] mt-0.5">{stat.label}</p>
             </Card>
           ))}
         </div>
@@ -85,13 +90,13 @@ export default function Home() {
                       </div>
                       {/* Info */}
                       <div className="flex-1 min-w-0 p-3">
-                        <p className="text-sm font-bold text-[#111] truncate tracking-tight">{om.gymName}</p>
+                        <p className="text-sm font-bold text-[var(--color-ink)] truncate tracking-tight">{om.gymName}</p>
                         <p className="text-[11px] text-kream-gray mt-0.5">
                           {month}/{day}({dayOfWeek}) · {om.time}
                         </p>
                         <p className="text-[11px] text-kream-gray">{om.location}</p>
                         <div className="flex items-center justify-between mt-2">
-                          <span className="text-xs font-bold text-[#111]">{om.price}</span>
+                          <span className="text-xs font-bold text-[var(--color-ink)]">{om.price}</span>
                           <span className="text-[11px] text-kream-gray">
                             {om.registered}/{om.capacity}명
                           </span>

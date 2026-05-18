@@ -77,8 +77,8 @@ export default function MatchingPage() {
                 onClick={() => toggleBelt(b)}
                 className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                   selectedBelts.has(b)
-                    ? "bg-kream-black text-white"
-                    : "bg-kream-bg text-kream-black"
+                    ? "bg-[var(--color-accent)] text-white"
+                    : "bg-[var(--color-surface-raised)] border border-[var(--color-line)] text-[var(--color-ink-soft)]"
                 }`}
               >
                 {BELT_LABELS[b]}
@@ -97,8 +97,8 @@ export default function MatchingPage() {
                 onClick={() => toggleRegion(r)}
                 className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                   selectedRegions.has(r)
-                    ? "bg-kream-black text-white"
-                    : "bg-kream-bg text-kream-black"
+                    ? "bg-[var(--color-accent)] text-white"
+                    : "bg-[var(--color-surface-raised)] border border-[var(--color-line)] text-[var(--color-ink-soft)]"
                 }`}
               >
                 {r}
@@ -117,8 +117,8 @@ export default function MatchingPage() {
                 onClick={() => toggleIntensity(i)}
                 className={`shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                   selectedIntensity.has(i)
-                    ? "bg-kream-black text-white"
-                    : "bg-kream-bg text-kream-black"
+                    ? "bg-[var(--color-accent)] text-white"
+                    : "bg-[var(--color-surface-raised)] border border-[var(--color-line)] text-[var(--color-ink-soft)]"
                 }`}
               >
                 {INTENSITY_LABELS[i]}
@@ -143,7 +143,7 @@ export default function MatchingPage() {
               <Card key={p.id} padding="sm">
                 <div className="flex gap-3">
                   <Link href={`/matching/${p.id}`} className="shrink-0">
-                    <Avatar name={p.name} size="lg" beltLevel={p.beltLevel} />
+                    <Avatar name={p.name} src={p.avatarUrl} size="lg" beltLevel={p.beltLevel} />
                   </Link>
                   <div className="flex-1 min-w-0">
                     <Link href={`/matching/${p.id}`}>

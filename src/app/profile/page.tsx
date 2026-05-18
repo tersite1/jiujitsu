@@ -42,7 +42,7 @@ export default function ProfilePage() {
   return (
     <AppShell>
       <TopBar
-        title="마이"
+        title="마이페이지"
         rightAction={
           <button className="p-1.5">
             <Settings size={20} className="text-kream-black" />
@@ -54,10 +54,10 @@ export default function ProfilePage() {
         {/* Profile Header — charcoal bg */}
         <div className="px-4 pt-8 pb-5">
           <div className="flex items-center gap-4">
-            <Avatar name={currentUser.name} size="xl" beltLevel={currentUser.beltLevel} />
+            <Avatar name={currentUser.name} src={currentUser.avatarUrl} size="xl" beltLevel={currentUser.beltLevel} />
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <h2 className="text-lg font-bold text-[#111]">{currentUser.name}</h2>
+                <h2 className="text-lg font-bold text-[var(--color-ink)]">{currentUser.name}</h2>
                 <button className="p-1">
                   <Edit3 size={14} className="text-kream-gray" />
                 </button>
@@ -86,7 +86,7 @@ export default function ProfilePage() {
             { label: "총 수련일", value: userStats.totalTrainingDays },
           ].map((stat) => (
             <div key={stat.label} className="text-center py-4 border-r border-kream-border last:border-r-0">
-              <p className="text-base font-bold text-[#111]">{stat.value}</p>
+              <p className="text-base font-bold text-[var(--color-ink)]">{stat.value}</p>
               <p className="text-[11px] text-kream-gray mt-0.5">{stat.label}</p>
             </div>
           ))}
@@ -131,8 +131,8 @@ export default function ProfilePage() {
                       i < userActivity.length - 1 ? "border-b border-kream-border" : ""
                     }`}
                   >
-                    <div className="w-8 h-8 rounded-lg bg-kream-charcoal flex items-center justify-center shrink-0">
-                      <Icon size={14} className="text-white" />
+                    <div className="w-8 h-8 rounded-lg bg-[var(--color-forest)] flex items-center justify-center shrink-0">
+                      <Icon size={14} className="text-[var(--color-ink-inverse)]" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-kream-black">{act.label}</p>
