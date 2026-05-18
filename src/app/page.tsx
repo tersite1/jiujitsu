@@ -24,7 +24,7 @@ export default function Home() {
         <div className="flex items-center justify-between h-12 px-4">
           <div className="flex items-center gap-2">
             <img src="/logo.png" alt="" className="h-7 w-auto" />
-            <span className="text-[22px] font-black text-[#00533E] tracking-tight leading-none">Oss</span>
+            <span className="text-[22px] font-black italic text-[#00533E] tracking-tight leading-none">Oss</span>
           </div>
           <div className="flex items-center gap-1">
             <Link href="/chat" className="p-1.5 rounded-full hover:bg-kream-bg transition-colors relative">
