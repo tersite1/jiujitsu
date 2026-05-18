@@ -5,7 +5,7 @@ export interface OpenMat {
   gymImageUrl: string;
   date: string;
   time: string;
-  location: string;
+  location: string; 
   address: string;
   price: string;
   capacity: number;
