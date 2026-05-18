@@ -76,7 +76,7 @@ export default function OpenMatDetailPage() {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-xs text-kream-gray">참여 현황</span>
-              <span className="text-xs font-bold text-[#111]">
+              <span className="text-xs font-bold text-[#161512]">
                 {om.registered}/{om.capacity}명
               </span>
             </div>
@@ -109,7 +109,7 @@ export default function OpenMatDetailPage() {
                 <row.icon size={16} className="text-[#333] shrink-0 mt-0.5" />
                 <div className="flex-1 min-w-0">
                   <p className="text-[11px] text-kream-gray">{row.label}</p>
-                  <p className="text-sm font-medium text-[#111] whitespace-pre-line">{row.value}</p>
+                  <p className="text-sm font-medium text-[#161512] whitespace-pre-line">{row.value}</p>
                 </div>
               </div>
             ))}
@@ -142,7 +142,7 @@ export default function OpenMatDetailPage() {
                   {Array.from({ length: Math.min(6, om.registered) }).map((_, i) => (
                     <div
                       key={i}
-                      className="w-8 h-8 rounded-full border-2 border-white bg-[#222] flex items-center justify-center"
+                      className="w-8 h-8 rounded-full border-2 border-white bg-[#161512] flex items-center justify-center"
                     >
                       <span className="text-white text-[10px] font-bold">
                         {String.fromCharCode(65 + i)}

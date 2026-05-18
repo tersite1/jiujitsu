@@ -145,7 +145,7 @@ export default function OpenMatPage() {
 
         {/* Results Count */}
         <p className="text-sm text-kream-gray border-t border-kream-border mt-4 pt-3 mb-2">
-          <span className="font-bold text-[#111]">{filtered.length}건</span>의 오픈매트
+          <span className="font-bold text-[#161512]">{filtered.length}건</span>의 오픈매트
         </p>
 
         {/* Open Mat Cards */}
@@ -203,7 +203,7 @@ export default function OpenMatPage() {
                             </span>
                           )}
                         </div>
-                        <span className="text-base font-bold text-[#111] shrink-0 ml-2">
+                        <span className="text-base font-bold text-[#161512] shrink-0 ml-2">
                           {om.price}
                         </span>
                       </div>

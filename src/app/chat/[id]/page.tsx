@@ -46,7 +46,7 @@ export default function ChatDetailPage() {
         showBack
         rightAction={
           <button className="p-1.5">
-            <Info size={20} className="text-[#222]" />
+            <Info size={20} className="text-[#161512]" />
           </button>
         }
       />
@@ -58,11 +58,11 @@ export default function ChatDetailPage() {
             <Card padding="sm" className="bg-kream-bg border-none">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-kream-bg">
-                  <Calendar size={18} className="text-[#222]" />
+                  <Calendar size={18} className="text-[#161512]" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-[#111]">예약 정보</span>
+                    <span className="text-xs font-bold text-[#161512]">예약 정보</span>
                     {(() => {
                       const status = statusConfig[room.reservationStatus!];
                       const StatusIcon = status.icon;
@@ -103,10 +103,10 @@ export default function ChatDetailPage() {
                   <Card padding="sm" className="w-full max-w-[280px] bg-kream-bg border-none">
                     <div className="text-center">
                       <div className="flex items-center justify-center gap-1 mb-2">
-                        <Calendar size={14} className="text-[#222]" />
-                        <span className="text-xs font-bold text-[#111]">예약</span>
+                        <Calendar size={14} className="text-[#161512]" />
+                        <span className="text-xs font-bold text-[#161512]">예약</span>
                       </div>
-                      <p className="text-sm font-bold text-[#111]">{msg.reservationInfo.type}</p>
+                      <p className="text-sm font-bold text-[#161512]">{msg.reservationInfo.type}</p>
                       <p className="text-[11px] text-kream-gray mt-1">
                         {(() => {
                           const d = new Date(msg.reservationInfo!.date);
@@ -152,8 +152,8 @@ export default function ChatDetailPage() {
                   <div
                     className={`px-3 py-2.5 text-sm leading-relaxed ${
                       isUser
-                        ? "bg-[#222] text-white rounded-2xl rounded-tr-md"
-                        : "bg-kream-bg text-[#111] rounded-2xl rounded-tl-md"
+                        ? "bg-[#161512] text-white rounded-2xl rounded-tr-md"
+                        : "bg-kream-bg text-[#161512] rounded-2xl rounded-tl-md"
                     }`}
                   >
                     {msg.content}
@@ -181,7 +181,7 @@ export default function ChatDetailPage() {
           />
           <button
             onClick={handleSend}
-            className="w-10 h-10 bg-[#222] rounded-full flex items-center justify-center shrink-0 active:scale-95 transition-transform"
+            className="w-10 h-10 bg-[#161512] rounded-full flex items-center justify-center shrink-0 active:scale-95 transition-transform"
           >
             <Send size={16} className="text-white ml-0.5" />
           </button>

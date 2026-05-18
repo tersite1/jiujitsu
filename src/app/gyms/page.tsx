@@ -115,7 +115,7 @@ export default function GymsPage() {
 
         {/* Results Count */}
         <p className="text-sm text-kream-gray mb-3">
-          <span className="font-bold text-[#111]">{filtered.length}개</span>의 도장
+          <span className="font-bold text-[#161512]">{filtered.length}개</span>의 도장
         </p>
 
         {/* Gym List */}
@@ -148,7 +148,7 @@ export default function GymsPage() {
                       </p>
                       <div className="flex items-center gap-1">
                         <RatingStars rating={gym.rating} size={12} />
-                        <span className="text-[11px] font-semibold text-[#111]">
+                        <span className="text-[11px] font-semibold text-[#161512]">
                           {gym.rating}
                         </span>
                         <span className="text-[11px] text-kream-gray">

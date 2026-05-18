@@ -24,7 +24,7 @@ export default function Home() {
         <div className="flex items-center justify-between h-12 px-4">
           <div className="flex items-center gap-2">
             <img src="/logo.png" alt="" className="h-7 w-auto" />
-            <span className="text-[22px] font-black italic text-[#00533E] tracking-tight leading-none">Oss</span>
+            <span className="text-[22px] font-black text-[#00533E] tracking-tight leading-none">Oss</span>
           </div>
           <div className="flex items-center gap-1">
             <Link href="/chat" className="p-1.5 rounded-full hover:bg-kream-bg transition-colors relative">
@@ -53,14 +53,14 @@ export default function Home() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-2.5">
           {[
-            { icon: TrendingUp, label: "이번 주 스파링", value: "3회" },
-            { icon: CalendarDays, label: "오픈매트 참여", value: "2회" },
-            { icon: Users, label: "다가오는 오픈매트", value: `${upcomingOpenmats.length}건` },
+            { icon: TrendingUp,  iconColor: "#00533E", label: "이번 주 스파링",   value: "3회" },
+            { icon: CalendarDays, iconColor: "#F7633D", label: "오픈매트 참여",    value: "2회" },
+            { icon: Users,       iconColor: "#8B8578",  label: "다가오는 오픈매트", value: `${upcomingOpenmats.length}건` },
           ].map((stat) => (
             <Card key={stat.label} padding="sm" className="text-center">
-              <stat.icon size={16} className="text-[#00533E] mx-auto mb-1" />
-              <p className="text-lg font-black text-[#161512] leading-tight">{stat.value}</p>
-              <p className="text-[10px] text-[#8B8578] mt-0.5">{stat.label}</p>
+              <stat.icon size={16} style={{ color: stat.iconColor }} className="mx-auto mb-1" />
+              <p className="text-lg font-extrabold text-[#161512] leading-tight tnum">{stat.value}</p>
+              <p className="text-[11px] text-[#8B8578] mt-0.5 leading-tight">{stat.label}</p>
             </Card>
           ))}
         </div>
@@ -107,7 +107,7 @@ export default function Home() {
                               className="h-full rounded-full transition-all"
                               style={{
                                 width: `${progress}%`,
-                                backgroundColor: progress > 80 ? "#EF6253" : "#31B46E",
+                                backgroundColor: progress > 80 ? "#F7633D" : "#1E8A52",
                               }}
                             />
                           </div>
@@ -132,9 +132,9 @@ export default function Home() {
           <div className="flex gap-2.5 overflow-x-auto hide-scrollbar -mx-4 px-4">
             {bannerEvents.map((ev) => {
               const catColor: Record<string, string> = {
-                seminar: "#EF6253",
-                competition: "#1E88E5",
-                workshop: "#FF9800",
+                seminar: "#F7633D",
+                competition: "#00533E",
+                workshop: "#D98627",
               };
               const dateObj = new Date(ev.date);
               const month = dateObj.getMonth() + 1;

@@ -67,7 +67,7 @@ export default function GymDetailPage() {
         <div className="px-4 pt-4 space-y-5">
           {/* Location + Rating strip */}
           <div className="flex items-center justify-between">
-            <div className="inline-flex items-center gap-1 bg-[#222] text-white text-[11px] font-semibold px-2.5 py-1 rounded-[5px]">
+            <div className="inline-flex items-center gap-1 bg-[#161512] text-white text-[11px] font-semibold px-2.5 py-1 rounded-[5px]">
               {countryFlags[gym.country] || "🌍"} {gym.city}
             </div>
             <div className="flex items-center gap-1.5">
@@ -97,7 +97,7 @@ export default function GymDetailPage() {
                   <row.icon size={16} className="text-[#333] shrink-0 mt-0.5" />
                   <div className="flex-1 min-w-0">
                     <p className="text-[11px] text-kream-gray">{row.label}</p>
-                    <p className="text-sm font-medium text-[#111]">{row.value}</p>
+                    <p className="text-sm font-medium text-[#161512]">{row.value}</p>
                   </div>
                 </div>
               ))}
@@ -112,11 +112,11 @@ export default function GymDetailPage() {
                 {gym.instructors.map((inst) => (
                   <Card key={inst.name} padding="sm">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#222] flex items-center justify-center shrink-0">
+                      <div className="w-10 h-10 rounded-full bg-[#161512] flex items-center justify-center shrink-0">
                         <Dumbbell size={16} className="text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-bold text-[#111]">{inst.name}</p>
+                        <p className="text-sm font-bold text-[#161512]">{inst.name}</p>
                         <p className="text-[11px] text-kream-gray">{inst.title}</p>
                         <p className="text-[11px] text-kream-gray">전문: {inst.specialty}</p>
                       </div>
@@ -139,7 +139,7 @@ export default function GymDetailPage() {
                       i < gym.schedule!.length - 1 ? "border-b border-kream-border" : ""
                     }`}
                   >
-                    <p className="text-xs font-bold text-[#111] mb-1.5">{sch.day}</p>
+                    <p className="text-xs font-bold text-[#161512] mb-1.5">{sch.day}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {sch.classes.map((cls) => (
                         <Badge key={cls} label={cls} variant="outline" />
@@ -195,7 +195,7 @@ export default function GymDetailPage() {
                 {reviews.map((review) => (
                   <Card key={review.id} padding="sm">
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-semibold text-[#111]">{review.authorName}</span>
+                      <span className="text-sm font-semibold text-[#161512]">{review.authorName}</span>
                       <div className="flex items-center gap-1.5">
                         <RatingStars rating={review.rating} size={12} />
                         <span className="text-[11px] text-kream-gray">{review.date}</span>

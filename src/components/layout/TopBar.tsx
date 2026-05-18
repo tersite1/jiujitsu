@@ -28,14 +28,14 @@ export default function TopBar({ title, showBack, rightAction }: TopBarProps) {
           ) : (
             <div className="flex items-center gap-2">
               <img src="/logo.png" alt="" className="h-6 w-auto" />
-              <span className="text-[19px] font-black italic text-[#00533E] tracking-tight leading-none">Oss</span>
+              <span className="text-[19px] font-black text-[#00533E] tracking-tight leading-none">Oss</span>
             </div>
           )}
         </div>
 
         {/* Center title */}
         {title && (
-          <h1 className="text-[18px] font-black italic text-[#00533E] absolute left-1/2 -translate-x-1/2 tracking-tight">
+          <h1 className="text-[15px] font-bold text-[#161512] absolute left-1/2 -translate-x-1/2 tracking-tight">
             {title}
           </h1>
         )}

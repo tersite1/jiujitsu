@@ -44,7 +44,7 @@ export default function ChatPage() {
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between">
-                            <p className="text-sm font-bold text-[#111] truncate">{room.gymName}</p>
+                            <p className="text-sm font-bold text-[#161512] truncate">{room.gymName}</p>
                             <div className="flex items-center gap-1 shrink-0 ml-2">
                               <StatusIcon size={12} style={{ color: status.color }} />
                               <span className="text-[11px] font-semibold" style={{ color: status.color }}>
@@ -83,7 +83,7 @@ export default function ChatPage() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <p className="text-sm font-bold text-[#111] truncate">{room.gymName}</p>
+                      <p className="text-sm font-bold text-[#161512] truncate">{room.gymName}</p>
                       <span className="text-[11px] text-kream-lightgray shrink-0 ml-2">
                         {room.lastMessageTime}
                       </span>

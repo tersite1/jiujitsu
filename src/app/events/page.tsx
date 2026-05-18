@@ -82,7 +82,7 @@ export default function EventsPage() {
               onClick={() => setActiveTab(tab.key)}
               className={`shrink-0 px-4 py-3 text-sm font-medium relative transition-colors ${
                 activeTab === tab.key
-                  ? "text-[#111] font-bold"
+                  ? "text-[#161512] font-bold"
                   : "text-kream-gray"
               }`}
             >
@@ -108,15 +108,15 @@ export default function EventsPage() {
         <p className="text-sm text-kream-gray border-t border-kream-border pt-3 mb-2">
           {viewMode === "calendar" && selectedDate ? (
             <>
-              <span className="font-bold text-[#111] tnum">
+              <span className="font-bold text-[#161512] tnum">
                 {selectedDate.slice(5).replace("-", "월 ")}일
               </span>{" "}
-              <span className="font-bold text-[#111]">{filtered.length}건</span>
+              <span className="font-bold text-[#161512]">{filtered.length}건</span>
             </>
           ) : viewMode === "calendar" ? (
             <>날짜를 선택하면 해당 일의 이벤트만 표시됩니다</>
           ) : (
-            <><span className="font-bold text-[#111]">{filtered.length}건</span>의 이벤트</>
+            <><span className="font-bold text-[#161512]">{filtered.length}건</span>의 이벤트</>
           )}
         </p>
 
@@ -139,7 +139,7 @@ export default function EventsPage() {
                 <Link key={ev.id} href={`/events/${ev.id}`}>
                   <Card padding="sm" className="flex gap-3 items-start mb-2.5">
                     {/* Date Block */}
-                    <div className="shrink-0 w-14 h-16 bg-[#222] rounded-xl flex flex-col items-center justify-center">
+                    <div className="shrink-0 w-14 h-16 bg-[#161512] rounded-xl flex flex-col items-center justify-center">
                       <span className="text-[10px] text-white/60 leading-tight">{month}월</span>
                       <span className="text-xl font-bold text-white leading-tight">{day}</span>
                     </div>
@@ -149,10 +149,10 @@ export default function EventsPage() {
                       <div className="flex items-center gap-1.5 mb-1">
                         <Badge label={EVENT_CATEGORY_LABELS[ev.category]} color={catColor} />
                         {ev.price === "무료" && (
-                          <Badge label="무료" color="#31B46E" />
+                          <Badge label="무료" color="#1E8A52" />
                         )}
                       </div>
-                      <p className="text-sm font-bold text-[#111] leading-snug tracking-tight">{ev.title}</p>
+                      <p className="text-sm font-bold text-[#161512] leading-snug tracking-tight">{ev.title}</p>
                       {ev.instructor && (
                         <p className="text-[11px] text-kream-gray mt-0.5">
                           {ev.instructor}{ev.instructorTitle && ` · ${ev.instructorTitle}`}
@@ -162,7 +162,7 @@ export default function EventsPage() {
                         {ev.location} · {ev.time}
                       </p>
                       <div className="flex items-center justify-between mt-2">
-                        <span className="text-xs font-bold text-[#111]">{ev.price}</span>
+                        <span className="text-xs font-bold text-[#161512]">{ev.price}</span>
                         {ev.capacity && (
                           <span className="text-[11px] text-kream-gray">
                             {ev.registered}/{ev.capacity}명
@@ -176,7 +176,7 @@ export default function EventsPage() {
                               className="h-full rounded-full transition-all"
                               style={{
                                 width: `${progress}%`,
-                                backgroundColor: progress > 80 ? "#EF6253" : "#31B46E",
+                                backgroundColor: progress > 80 ? "#F7633D" : "#1E8A52",
                               }}
                             />
                           </div>
