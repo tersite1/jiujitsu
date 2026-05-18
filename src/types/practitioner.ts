@@ -6,7 +6,7 @@ export interface Practitioner {
   age: number;
   beltLevel: BeltLevel;
   stripes: number;
-  weightClass: WeightClass;
+  weightClass: WeightClass; 
   weightKg: number;
   region: Region;
   gym: string;
