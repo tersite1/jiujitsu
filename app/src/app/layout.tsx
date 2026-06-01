@@ -1,0 +1,35 @@
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+import Providers from "./providers";
+
+export const metadata: Metadata = {
+  title: "오스 (押忍) — 주짓수 매칭 플랫폼",
+  description: "스파링 파트너 매칭, 도장 찾기, 세미나 허브",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="ko">
+      <head>
+        <link
+          rel="stylesheet"
+          as="style"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
+      </head>
+      <body><Providers>{children}</Providers></body>
+    </html>
+  );
+}

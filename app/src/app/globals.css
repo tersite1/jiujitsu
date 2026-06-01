@@ -1,0 +1,280 @@
+@import "tailwindcss";
+
+/* ============================================================
+   오스(押忍) Design Tokens
+   - Brand:    coral / forest / canvas
+   - Semantic: surface / ink / line / state / accent / brand
+   - Belt / Intensity: domain
+   - Motion:   easing + duration
+   - Radii / Shadow: scale
+   Tailwind v4 exposes `--color-*` as utilities (e.g. `bg-surface`,
+   `text-ink`, `border-line`). Keep token names short and meaningful.
+   ============================================================ */
+
+@theme inline {
+  /* ---------- Brand ---------- */
+  --color-coral:        #F7633D;  /* primary action: CTA, active chip, alert highlight */
+  --color-coral-soft:   #FDE4D9;  /* coral wash: hover bg on coral surfaces, badge bg */
+  --color-coral-deep:   #C4421F;  /* coral pressed / on-light danger */
+
+  --color-forest:       #00533E;  /* primary brand: logo, header accent, dark surface */
+  --color-forest-soft:  #E5EDE9;  /* forest wash: subtle brand surface */
+  --color-forest-deep:  #003D2D;  /* forest pressed / depth */
+
+  --color-canvas:       #D4CFC2;  /* sub: warm canvas, mat tone, divider canvas */
+  --color-canvas-soft:  #EDEAE2;  /* lighter canvas: sunken surface, skeleton base */
+  --color-canvas-deep:  #B8B0A0;  /* deeper canvas: strong border on canvas */
+
+  /* ---------- Semantic (light) ---------- */
+  --color-surface:         #FAF8F4;  /* page background (warm off-white nodding to canvas) */
+  --color-surface-raised:  #FFFFFF;  /* cards / sheets on top of surface */
+  --color-surface-sunken:  #EDEAE2;  /* inputs, skeletons, recessed wells */
+  --color-surface-inverse: #00533E;  /* dark panel on light pages (forest) */
+
+  --color-ink:         #161512;  /* primary text — warm near-black, harmonizes w/ canvas */
+  --color-ink-soft:    #5A554A;  /* secondary text */
+  --color-ink-muted:   #8B8578;  /* tertiary / meta */
+  --color-ink-inverse: #FAF8F4;  /* text on inverse/forest surfaces */
+
+  --color-line:        #E8E2D5;  /* hairline border, canvas-tinted */
+  --color-line-strong: #A09886;  /* prominent border / on-canvas separator */
+
+  --color-accent:  #F7633D;  /* alias of coral — semantic CTA */
+  --color-brand:   #00533E;  /* alias of forest — semantic brand */
+
+  --color-success: #1E8A52;
+  --color-warning: #D98627;
+  --color-danger:  #C4421F;
+  --color-focus:   #F7633D;
+  --color-rating:  #E8A317;  /* warm amber stars — harmonizes with warning */
+
+  /* ---------- Belt (re-tuned for 오스 palette) ---------- */
+  --color-belt-white:  #FFFFFF;  /* true white — paired with border in component */
+  --color-belt-blue:   #1E5A8E;  /* desaturated to harmonize with forest */
+  --color-belt-purple: #6B3D8E;
+  --color-belt-brown:  #6B4A2E;
+  --color-belt-black:  #161512;
+
+  /* ---------- Intensity ---------- */
+  --color-intensity-light:  #1E8A52;
+  --color-intensity-medium: #D98627;
+  --color-intensity-hard:   #C4421F;
+
+  /* ---------- Back-compat: kream-* aliases ----------
+     Deprecated. Existing JSX (175 usages) continues to work,
+     but new colors flow through automatically. Sweep in follow-up. */
+  --color-kream-bg:        #EDEAE2;   /* canvas-soft — visibly warm on hero placeholders */
+  --color-kream-border:    #D4CFC2;   /* canvas hairline — visible canvas brand */
+  --color-kream-red:       #F7633D;
+  --color-kream-black:     #161512;
+  --color-kream-charcoal:  #2A271F;
+  --color-kream-dark:      #1F1C16;
+  --color-kream-gray:      #8B8578;
+  --color-kream-lightgray: #C9C1B0;
+  --color-kream-green:     #1E8A52;
+
+  --color-background: #FFFFFF;
+  --color-foreground: #161512;
+
+  /* ---------- Typography ---------- */
+  --font-sans: 'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+/* ============================================================
+   Non-color tokens (Tailwind v4 ignores these, used via var())
+   ============================================================ */
+:root {
+  /* Motion */
+  --ease-out:    cubic-bezier(0.32, 0.72, 0, 1);   /* Toss-style expressive ease-out */
+  --ease-in:     cubic-bezier(0.4, 0, 0.6, 1);
+  --ease-spring: cubic-bezier(0.5, 1.4, 0.4, 1);
+  --duration-instant: 80ms;
+  --duration-fast:    150ms;
+  --duration-normal:  240ms;
+  --duration-slow:    400ms;
+
+  /* Radii */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  20px;
+  --radius-full: 999px;
+
+  /* Elevation — warm shadows, low spread */
+  --shadow-sm: 0 1px 2px rgb(22 21 18 / 0.04), 0 0 0 1px rgb(22 21 18 / 0.04);
+  --shadow-md: 0 4px 12px rgb(22 21 18 / 0.06), 0 0 0 1px rgb(22 21 18 / 0.04);
+  --shadow-lg: 0 12px 32px rgb(22 21 18 / 0.08), 0 0 0 1px rgb(22 21 18 / 0.04);
+}
+
+/* Dark mode: not yet implemented — light mode only for now */
+
+/* ============================================================
+   Base layer
+   ============================================================ */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "ss02";  /* Pretendard stylistic sets if available */
+}
+
+body {
+  /* Deeper canvas outside the 430px mobile frame — visible brand canvas on desktop */
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optical typography defaults */
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+h1, h2 { line-height: 1.15; }
+h3, h4 { line-height: 1.25; }
+p { text-wrap: pretty; }
+
+/* Numerals: tabular by default for any element that displays counts/prices/times.
+   Apply via the `.tnum` utility (see below). Designers must add it explicitly. */
+
+/* ============================================================
+   Accessibility — focus
+   ============================================================ */
+:focus { outline: none; }  /* reset default ring */
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Interactive primitives get a slightly tighter ring (the element already has padding) */
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+[role="tab"]:focus-visible,
+[role="menuitem"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Reduced motion (WCAG 2.2 SC 2.3.3)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Layout primitives
+   ============================================================ */
+.app-container {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  background: var(--color-surface);   /* warm off-white interior */
+  position: relative;
+  overflow-x: hidden;
+  /* Soft edge between mobile frame and canvas backdrop */
+  box-shadow: 0 0 0 1px rgb(0 83 62 / 0.06);
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+.backdrop-blur {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Section header with left brand accent bar — forest, not raw ink */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.02em;
+}
+.section-header::before {
+  content: '';
+  display: block;
+  width: 3px;
+  height: 14px;
+  background: var(--color-brand);
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Utility classes
+   ============================================================ */
+
+/* Tabular numerals — apply to any element rendering aligned numbers
+   (prices, counts, capacity, progress %, scores, dates).
+   Usage: <span className="tnum">{value}</span> */
+.tnum {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Belt edge — 4px full-height left ribbon for cards.
+   Usage: wrap card in `.belt-edge` and set `--belt: var(--color-belt-blue)`.
+   The card itself should have `position: relative; overflow: hidden`. */
+.belt-edge {
+  position: relative;
+}
+.belt-edge::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--belt, var(--color-canvas-deep));
+  transition: width var(--duration-fast) var(--ease-out);
+}
+.belt-edge:hover::before,
+.belt-edge:focus-within::before {
+  width: 8px;
+}
+
+/* ============================================================
+   Animations (transform/opacity only — 60fps safe)
+   ============================================================ */
+@keyframes toast-in {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes toast-out {
+  from { transform: translateY(0);    opacity: 1; }
+  to   { transform: translateY(-20px); opacity: 0; }
+}
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.toast-enter { animation: toast-in  var(--duration-normal) var(--ease-out); }
+.toast-exit  { animation: toast-out var(--duration-fast)   var(--ease-in) forwards; }
+.slide-up    { animation: slide-up  var(--duration-normal) var(--ease-out); }
