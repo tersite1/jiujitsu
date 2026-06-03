@@ -60,25 +60,19 @@ export default function EventDetailPage() {
         {/* Hero */}
         <div className="h-48 bg-kream-bg relative">
           <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           <div className="absolute top-3 left-3">
             <Badge label={EVENT_CATEGORY_LABELS[event.category]} color={catColor} />
+          </div>
+          <div className="absolute bottom-4 left-4 right-4">
+            <h2 className="text-2xl font-black text-white tracking-[-0.02em] leading-tight">{event.title}</h2>
+            {event.instructor && (
+              <p className="text-sm text-white/70 mt-1">{event.instructor}{event.instructorTitle && ` · ${event.instructorTitle}`}</p>
+            )}
           </div>
         </div>
 
         <div className="px-4 pt-4 space-y-5">
-          {/* Title */}
-          <div>
-            <h2 className="text-lg font-bold text-kream-black leading-snug">{event.title}</h2>
-            {event.instructor && (
-              <p className="text-sm text-kream-gray mt-1">
-                {event.instructor}
-                {event.instructorTitle && (
-                  <span className="text-kream-lightgray"> · {event.instructorTitle}</span>
-                )}
-              </p>
-            )}
-          </div>
-
           {/* Capacity Progress */}
           {event.capacity && (
             <div>
@@ -123,7 +117,7 @@ export default function EventDetailPage() {
 
           {/* Description */}
           <div>
-            <h3 className="text-sm font-bold text-kream-black mb-2">상세 정보</h3>
+            <h3 className="section-header mb-2">상세 정보</h3>
             <Card>
               <p className="text-sm text-kream-gray leading-relaxed">{event.description}</p>
             </Card>
@@ -131,7 +125,7 @@ export default function EventDetailPage() {
 
           {/* Tags */}
           <div>
-            <h3 className="text-sm font-bold text-kream-black mb-2">태그</h3>
+            <h3 className="section-header mb-2">태그</h3>
             <div className="flex gap-1.5 flex-wrap">
               {event.tags.map((t) => (
                 <Badge key={t} label={t} variant="outline" />
@@ -142,7 +136,7 @@ export default function EventDetailPage() {
           {/* Participants Preview */}
           {event.registered && event.registered > 0 && (
             <div>
-              <h3 className="text-sm font-bold text-kream-black mb-2">참가자</h3>
+              <h3 className="section-header mb-2">참가자</h3>
               <div className="flex items-center">
                 <div className="flex -space-x-2">
                   {mockParticipantColors.slice(0, Math.min(6, event.registered)).map((color, i) => (

@@ -83,7 +83,7 @@ export default function PractitionerDetailPage() {
 
         {/* Bio */}
         <div>
-          <h3 className="text-sm font-bold text-kream-black mb-2">자기소개</h3>
+          <h3 className="section-header mb-2">자기소개</h3>
           <Card>
             <p className="text-sm text-kream-gray leading-relaxed">{p.bio}</p>
           </Card>
@@ -91,7 +91,7 @@ export default function PractitionerDetailPage() {
 
         {/* Schedule */}
         <div>
-          <h3 className="text-sm font-bold text-kream-black mb-2">선호 스파링 시간</h3>
+          <h3 className="section-header mb-2">선호 스파링 시간</h3>
           <div className="flex gap-2 flex-wrap">
             {p.preferredSchedule.map((s) => (
               <Badge key={s} label={s} variant="outline" />
@@ -101,13 +101,13 @@ export default function PractitionerDetailPage() {
 
         {/* Intensity */}
         <div>
-          <h3 className="text-sm font-bold text-kream-black mb-2">선호 강도</h3>
+          <h3 className="section-header mb-2">선호 강도</h3>
           <IntensityBadge intensity={p.intensityPreference} />
         </div>
 
         {/* Sparring review (post-match) */}
         <div>
-          <h3 className="text-sm font-bold text-kream-black mb-2">스파링 후 평가</h3>
+          <h3 className="section-header mb-2">스파링 후 평가</h3>
           {partnerReview ? (
             <Card>
               <div className="flex items-center justify-between mb-2">

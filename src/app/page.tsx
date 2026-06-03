@@ -11,7 +11,6 @@ import { events } from "@/data/mock-events";
 import { getProgressPercent } from "@/lib/utils";
 import { EVENT_CATEGORY_LABELS } from "@/types/event";
 import { Bell, MessageCircle, ChevronRight, TrendingUp, CalendarDays, Users } from "lucide-react";
-import { BELT_COLORS } from "@/types/common";
 import Link from "next/link";
 
 export default function Home() {
@@ -24,11 +23,10 @@ export default function Home() {
       <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_var(--color-line)]">
         <div className="flex items-center justify-between h-12 px-4">
           <div className="flex items-center gap-2">
-            <div
-              className="w-5 h-5 rounded-full border border-[#D4CFC2] shadow-sm"
-              style={{ backgroundColor: BELT_COLORS[currentUser.beltLevel] }}
-            />
-            <span className="text-[22px] font-black italic text-[#00533E] tracking-tight leading-none">Oss</span>
+            <div className="w-7 h-7 rounded-full bg-[#00533E] flex items-center justify-center overflow-hidden">
+              <img src="/oss-logo.svg" alt="Oss" className="w-6 h-6 object-contain" />
+            </div>
+            <span className="text-[19px] font-black italic text-[#00533E] tracking-tight leading-none">Oss</span>
           </div>
           <div className="flex items-center gap-1">
             <Link href="/chat" className="p-1.5 rounded-full hover:bg-kream-bg transition-colors relative">

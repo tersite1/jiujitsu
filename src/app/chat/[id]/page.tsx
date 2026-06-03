@@ -7,7 +7,7 @@ import TopBar from "@/components/layout/TopBar";
 import Card from "@/components/shared/Card";
 import Badge from "@/components/shared/Badge";
 import Toast from "@/components/shared/Toast";
-import { chatRooms, chatMessages } from "@/data/mock-chats";
+import { chatRooms, chatMessages, ChatMessage } from "@/data/mock-chats";
 import { Send, Calendar, CheckCircle, Clock, AlertCircle, MapPin, Info } from "lucide-react";
 
 const statusConfig = {
@@ -20,9 +20,11 @@ export default function ChatDetailPage() {
   const params = useParams();
   const [inputValue, setInputValue] = useState("");
   const [showToast, setShowToast] = useState(false);
+  const [localMessages, setLocalMessages] = useState<ChatMessage[]>([]);
 
   const room = chatRooms.find((r) => r.id === params.id);
-  const messages = chatMessages.filter((m) => m.roomId === params.id);
+  const baseMessages = chatMessages.filter((m) => m.roomId === params.id);
+  const messages = [...baseMessages, ...localMessages];
 
   if (!room) {
     return (
@@ -35,8 +37,18 @@ export default function ChatDetailPage() {
 
   const handleSend = () => {
     if (!inputValue.trim()) return;
+    const now = new Date();
+    const timestamp = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`;
+    setLocalMessages((prev) => [...prev, {
+      id: `local-${Date.now()}`,
+      roomId: params.id as string,
+      sender: "user",
+      senderName: "나",
+      content: inputValue.trim(),
+      timestamp,
+      type: "text",
+    }]);
     setInputValue("");
-    setShowToast(true);
   };
 
   return (
