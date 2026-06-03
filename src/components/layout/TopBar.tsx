@@ -28,13 +28,16 @@ export default function TopBar({ title, showBack, rightAction }: TopBarProps) {
             </button>
           ) : (
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-[#00533E] flex items-center justify-center overflow-hidden">
-                <img
-                  src="/oss-logo.svg"
-                  alt="Oss"
-                  className="w-6 h-6 object-contain"
-                />
-              </div>
+              <div
+                className="w-8 h-8 rounded-xl overflow-hidden shrink-0"
+                style={{
+                  backgroundImage: 'url(/oss-logo.svg)',
+                  backgroundSize: '160%',
+                  backgroundPosition: 'center top',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundColor: '#00533E',
+                }}
+              />
               <span className="text-[19px] font-black italic text-[#00533E] tracking-tight leading-none">Oss</span>
             </div>
           )}
