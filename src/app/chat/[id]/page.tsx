@@ -6,7 +6,6 @@ import AppShell from "@/components/layout/AppShell";
 import TopBar from "@/components/layout/TopBar";
 import Card from "@/components/shared/Card";
 import Badge from "@/components/shared/Badge";
-import Toast from "@/components/shared/Toast";
 import { chatRooms, chatMessages, ChatMessage } from "@/data/mock-chats";
 import { Send, Calendar, CheckCircle, Clock, AlertCircle, MapPin, Info } from "lucide-react";
 
@@ -19,7 +18,6 @@ const statusConfig = {
 export default function ChatDetailPage() {
   const params = useParams();
   const [inputValue, setInputValue] = useState("");
-  const [showToast, setShowToast] = useState(false);
   const [localMessages, setLocalMessages] = useState<ChatMessage[]>([]);
 
   const room = chatRooms.find((r) => r.id === params.id);
@@ -187,7 +185,7 @@ export default function ChatDetailPage() {
             type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            onKeyDown={(e) => { if (e.nativeEvent.isComposing) return; if (e.key === "Enter") handleSend(); }}
             placeholder="메시지를 입력하세요..."
             className="flex-1 h-10 px-4 bg-kream-bg rounded-full text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[var(--color-focus)]"
           />
@@ -200,11 +198,6 @@ export default function ChatDetailPage() {
         </div>
       </div>
 
-      <Toast
-        message="메시지가 전송되었습니다"
-        isVisible={showToast}
-        onHide={() => setShowToast(false)}
-      />
     </AppShell>
   );
 }
