@@ -46,6 +46,7 @@
   --color-warning: #D98627;
   --color-danger:  #C4421F;
   --color-focus:   #F7633D;
+  --color-rating:  #E8A317;  /* warm amber stars — harmonizes with warning */
 
   /* ---------- Belt (re-tuned for 오스 palette) ---------- */
   --color-belt-white:  #FFFFFF;  /* true white — paired with border in component */

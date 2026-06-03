@@ -11,6 +11,7 @@ import { events } from "@/data/mock-events";
 import { getProgressPercent } from "@/lib/utils";
 import { EVENT_CATEGORY_LABELS } from "@/types/event";
 import { Bell, MessageCircle, ChevronRight, TrendingUp, CalendarDays, Users } from "lucide-react";
+import { BELT_COLORS } from "@/types/common";
 import Link from "next/link";
 
 export default function Home() {
@@ -23,7 +24,10 @@ export default function Home() {
       <header className="sticky top-0 z-40 bg-white shadow-[0_1px_0_var(--color-line)]">
         <div className="flex items-center justify-between h-12 px-4">
           <div className="flex items-center gap-2">
-            <img src="/logo.png" alt="" className="h-7 w-auto" />
+            <div
+              className="w-5 h-5 rounded-full border border-[#D4CFC2] shadow-sm"
+              style={{ backgroundColor: BELT_COLORS[currentUser.beltLevel] }}
+            />
             <span className="text-[22px] font-black italic text-[#00533E] tracking-tight leading-none">Oss</span>
           </div>
           <div className="flex items-center gap-1">
@@ -97,7 +101,7 @@ export default function Home() {
                         <p className="text-[11px] text-kream-gray">{om.location}</p>
                         <div className="flex items-center justify-between mt-2">
                           <span className="text-xs font-bold text-[var(--color-ink)]">{om.price}</span>
-                          <span className="text-[11px] text-kream-gray">
+                          <span className="text-[11px] text-kream-gray tnum">
                             {om.registered}/{om.capacity}명
                           </span>
                         </div>

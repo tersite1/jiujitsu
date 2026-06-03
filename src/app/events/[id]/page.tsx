@@ -15,13 +15,13 @@ import { getProgressPercent } from "@/lib/utils";
 import { Calendar, MapPin, DollarSign, Users } from "lucide-react";
 
 const categoryColors: Record<string, string> = {
-  seminar: "#EF6253",
-  competition: "#1E88E5",
-  "open-mat": "#31B46E",
-  workshop: "#FF9800",
+  seminar: "#F7633D",
+  competition: "#00533E",
+  "open-mat": "#1E8A52",
+  workshop: "#D98627",
 };
 
-const mockParticipantColors = ["#EF6253", "#1E88E5", "#31B46E", "#FF9800", "#8E24AA", "#795548"];
+const mockParticipantColors = ["#00533E", "#F7633D", "#1E5A8E", "#6B4A2E", "#5A554A", "#B8B0A0"];
 
 export default function EventDetailPage() {
   const params = useParams();
@@ -84,7 +84,7 @@ export default function EventDetailPage() {
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <span className="text-xs text-kream-gray">등록 현황</span>
-                <span className="text-xs font-semibold text-kream-black">
+                <span className="text-xs font-semibold text-kream-black tnum">
                   {event.registered}/{event.capacity}명
                 </span>
               </div>
@@ -93,7 +93,7 @@ export default function EventDetailPage() {
                   className="h-full rounded-full transition-all"
                   style={{
                     width: `${progress}%`,
-                    backgroundColor: progress > 80 ? "#EF6253" : "#31B46E",
+                    backgroundColor: progress > 80 ? "#C4421F" : "#1E8A52",
                   }}
                 />
               </div>

@@ -139,7 +139,7 @@ export default function EventsPage() {
                 <Link key={ev.id} href={`/events/${ev.id}`}>
                   <Card padding="sm" className="flex gap-3 items-start mb-2.5">
                     {/* Date Block */}
-                    <div className="shrink-0 w-14 h-16 bg-[#161512] rounded-xl flex flex-col items-center justify-center">
+                    <div className="shrink-0 w-14 h-16 bg-[var(--color-forest)] rounded-xl flex flex-col items-center justify-center">
                       <span className="text-[10px] text-white/60 leading-tight">{month}월</span>
                       <span className="text-xl font-bold text-white leading-tight">{day}</span>
                     </div>
@@ -164,7 +164,7 @@ export default function EventsPage() {
                       <div className="flex items-center justify-between mt-2">
                         <span className="text-xs font-bold text-[#161512]">{ev.price}</span>
                         {ev.capacity && (
-                          <span className="text-[11px] text-kream-gray">
+                          <span className="text-[11px] text-kream-gray tnum">
                             {ev.registered}/{ev.capacity}명
                           </span>
                         )}

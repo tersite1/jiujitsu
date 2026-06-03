@@ -4,11 +4,12 @@ import { ReactNode } from "react";
 interface CardProps {
   children: ReactNode;
   className?: string;
+  style?: React.CSSProperties;
   onClick?: () => void;
   padding?: "none" | "sm" | "md";
 }
 
-export default function Card({ children, className, onClick, padding = "md" }: CardProps) {
+export default function Card({ children, className, style, onClick, padding = "md" }: CardProps) {
   const paddings = { none: "", sm: "p-3", md: "p-4" };
   return (
     <div
@@ -18,6 +19,7 @@ export default function Card({ children, className, onClick, padding = "md" }: C
         onClick && "cursor-pointer active:scale-[0.99] transition-transform",
         className
       )}
+      style={style}
       onClick={onClick}
     >
       {children}

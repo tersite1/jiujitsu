@@ -11,9 +11,9 @@ import { chatRooms, chatMessages } from "@/data/mock-chats";
 import { Send, Calendar, CheckCircle, Clock, AlertCircle, MapPin, Info } from "lucide-react";
 
 const statusConfig = {
-  confirmed: { label: "확정", color: "#31B46E", icon: CheckCircle, bg: "#31B46E18" },
-  pending: { label: "대기중", color: "#FF9800", icon: Clock, bg: "#FF980018" },
-  cancelled: { label: "취소됨", color: "#EF6253", icon: AlertCircle, bg: "#EF625318" },
+  confirmed: { label: "확정", color: "#1E8A52", icon: CheckCircle, bg: "#1E8A5218" },
+  pending: { label: "대기중", color: "#D98627", icon: Clock, bg: "#D9862718" },
+  cancelled: { label: "취소됨", color: "#C4421F", icon: AlertCircle, bg: "#C4421F18" },
 };
 
 export default function ChatDetailPage() {
@@ -169,7 +169,7 @@ export default function ChatDetailPage() {
       </div>
 
       {/* Input Bar */}
-      <div className="fixed bottom-[calc(4rem+env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-[#E0E0E0] z-30 p-3">
+      <div className="fixed bottom-[calc(4rem+env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white border-t border-kream-border z-30 p-3">
         <div className="flex items-center gap-2">
           <input
             type="text"
@@ -177,7 +177,7 @@ export default function ChatDetailPage() {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
             placeholder="메시지를 입력하세요..."
-            className="flex-1 h-10 px-4 bg-kream-bg rounded-full text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[#222]"
+            className="flex-1 h-10 px-4 bg-kream-bg rounded-full text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[var(--color-focus)]"
           />
           <button
             onClick={handleSend}

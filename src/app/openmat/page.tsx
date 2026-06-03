@@ -76,7 +76,7 @@ export default function OpenMatPage() {
             placeholder="도장, 지역 검색..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-10 pl-9 pr-4 bg-kream-bg rounded-xl text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[#222]"
+            className="w-full h-10 pl-9 pr-4 bg-kream-bg rounded-xl text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[var(--color-focus)]"
           />
         </div>
 
@@ -174,12 +174,12 @@ export default function OpenMatPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                       {isFull && (
                         <div className="absolute top-2.5 right-2.5">
-                          <Badge label="마감" color="#EF6253" />
+                          <Badge label="마감" color="#C4421F" />
                         </div>
                       )}
                       {om.price === "무료" && (
                         <div className="absolute top-2.5 left-2.5">
-                          <Badge label="무료" color="#31B46E" />
+                          <Badge label="무료" color="#1E8A52" />
                         </div>
                       )}
                       <div className="absolute bottom-3 left-3 right-3">
@@ -193,7 +193,7 @@ export default function OpenMatPage() {
                       {/* Date & Time + Price */}
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-1">
-                          <Calendar size={12} className="text-[#333] shrink-0" />
+                          <Calendar size={12} className="text-[var(--color-ink-muted)] shrink-0" />
                           <p className="text-[11px] text-kream-gray">
                             {month}/{day}({dayOfWeek}) {om.time}
                           </p>
@@ -210,19 +210,19 @@ export default function OpenMatPage() {
 
                       {/* Capacity */}
                       <div className="flex items-center gap-1.5 mt-2">
-                        <Users size={12} className="text-[#333] shrink-0" />
+                        <Users size={12} className="text-[var(--color-ink-muted)] shrink-0" />
                         <div className="flex-1">
                           <div className="h-1.5 bg-kream-bg rounded-full overflow-hidden">
                             <div
                               className="h-full rounded-full transition-all"
                               style={{
                                 width: `${progress}%`,
-                                backgroundColor: progress > 80 ? "#EF6253" : "#31B46E",
+                                backgroundColor: progress > 80 ? "#C4421F" : "#1E8A52",
                               }}
                             />
                           </div>
                         </div>
-                        <span className="text-[11px] text-kream-gray shrink-0">
+                        <span className="text-[11px] text-kream-gray shrink-0 tnum">
                           {om.registered}/{om.capacity}명
                         </span>
                       </div>

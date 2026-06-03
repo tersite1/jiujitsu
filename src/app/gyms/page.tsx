@@ -71,7 +71,7 @@ export default function GymsPage() {
             placeholder="도장, 도시, 국가 검색..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full h-10 pl-9 pr-4 bg-kream-bg rounded-xl text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[#222]"
+            className="w-full h-10 pl-9 pr-4 bg-kream-bg rounded-xl text-sm text-kream-black placeholder:text-kream-lightgray outline-none focus:ring-1 focus:ring-[var(--color-focus)]"
           />
         </div>
 
@@ -148,10 +148,10 @@ export default function GymsPage() {
                       </p>
                       <div className="flex items-center gap-1">
                         <RatingStars rating={gym.rating} size={12} />
-                        <span className="text-[11px] font-semibold text-[#161512]">
+                        <span className="text-[11px] font-semibold text-[#161512] tnum">
                           {gym.rating}
                         </span>
-                        <span className="text-[11px] text-kream-gray">
+                        <span className="text-[11px] text-kream-gray tnum">
                           ({gym.reviewCount})
                         </span>
                       </div>

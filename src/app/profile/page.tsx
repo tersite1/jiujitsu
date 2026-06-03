@@ -51,8 +51,7 @@ export default function ProfilePage() {
       />
 
       <div className="pb-4">
-        {/* Profile Header — charcoal bg */}
-        <div className="px-4 pt-8 pb-5">
+        <div className="px-4 pt-8 pb-5 bg-[var(--color-forest-soft)] border-b border-[var(--color-line)]">
           <div className="flex items-center gap-4">
             <Avatar name={currentUser.name} src={currentUser.avatarUrl} size="xl" beltLevel={currentUser.beltLevel} />
             <div className="flex-1">
@@ -62,15 +61,7 @@ export default function ProfilePage() {
                   <Edit3 size={14} className="text-kream-gray" />
                 </button>
               </div>
-              <div className="flex items-center gap-1.5 mt-1">
-                <div
-                  className="w-2.5 h-2.5 rounded-full border border-kream-border"
-                  style={{ backgroundColor: currentUser.beltLevel === "white" ? "#E0E0E0" : undefined }}
-                />
-                <span className="text-sm text-kream-gray">
-                  {BELT_LABELS[currentUser.beltLevel]} {currentUser.stripes > 0 && `${currentUser.stripes}그랄`}
-                </span>
-              </div>
+              <div className="mt-1"><BeltIndicator level={currentUser.beltLevel} stripes={currentUser.stripes} /></div>
               <p className="text-xs text-kream-gray mt-1">{currentUser.gym} · {currentUser.experience}</p>
               <p className="text-[11px] text-kream-lightgray mt-0.5">가입일 {joinStr}</p>
             </div>
@@ -86,7 +77,7 @@ export default function ProfilePage() {
             { label: "총 수련일", value: userStats.totalTrainingDays },
           ].map((stat) => (
             <div key={stat.label} className="text-center py-4 border-r border-kream-border last:border-r-0">
-              <p className="text-base font-bold text-[var(--color-ink)]">{stat.value}</p>
+              <p className="text-base font-bold text-[var(--color-ink)] tnum">{stat.value}</p>
               <p className="text-[11px] text-kream-gray mt-0.5">{stat.label}</p>
             </div>
           ))}

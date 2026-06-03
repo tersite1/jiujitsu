@@ -8,13 +8,12 @@ import Avatar from "@/components/shared/Avatar";
 import BeltIndicator from "@/components/shared/BeltIndicator";
 import IntensityBadge from "@/components/shared/IntensityBadge";
 import Badge from "@/components/shared/Badge";
-import Button from "@/components/shared/Button";
 import Card from "@/components/shared/Card";
 import Toast from "@/components/shared/Toast";
 import EmptyState from "@/components/shared/EmptyState";
 import { practitioners } from "@/data/mock-practitioners";
-import { BeltLevel, BELT_LABELS, IntensityPreference, INTENSITY_LABELS, Region, WEIGHT_LABELS } from "@/types/common";
-import { Search } from "lucide-react";
+import { BeltLevel, BELT_COLORS, BELT_LABELS, IntensityPreference, INTENSITY_LABELS, Region, WEIGHT_LABELS } from "@/types/common";
+import { Search, UserPlus } from "lucide-react";
 
 const beltFilters: BeltLevel[] = ["white", "blue", "purple", "brown", "black"];
 const regionFilters: Region[] = ["강남", "서초", "송파", "마포", "홍대", "건대", "잠실", "종로"];
@@ -140,7 +139,12 @@ export default function MatchingPage() {
         ) : (
           <div className="space-y-2.5">
             {filtered.map((p) => (
-              <Card key={p.id} padding="sm">
+              <Card
+                key={p.id}
+                padding="sm"
+                className="belt-edge overflow-hidden"
+                style={{ ["--belt"]: BELT_COLORS[p.beltLevel] } as React.CSSProperties}
+              >
                 <div className="flex gap-3">
                   <Link href={`/matching/${p.id}`} className="shrink-0">
                     <Avatar name={p.name} src={p.avatarUrl} size="lg" beltLevel={p.beltLevel} />
@@ -149,7 +153,7 @@ export default function MatchingPage() {
                     <Link href={`/matching/${p.id}`}>
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-sm font-semibold text-kream-black">{p.name}</span>
-                        <span className="text-[11px] text-kream-gray">{p.age}세</span>
+                        <span className="text-[11px] text-kream-gray tnum">{p.age}세</span>
                         {!p.isAvailable && (
                           <Badge label="오프라인" variant="outline" className="text-kream-lightgray" />
                         )}
@@ -161,7 +165,7 @@ export default function MatchingPage() {
                       <div className="flex items-center gap-1.5 mt-1.5">
                         <IntensityBadge intensity={p.intensityPreference} />
                         <span className="text-[11px] text-kream-gray">
-                          {WEIGHT_LABELS[p.weightClass]} {p.weightKg}kg
+                          {WEIGHT_LABELS[p.weightClass]} <span className="tnum">{p.weightKg}</span>kg
                         </span>
                       </div>
                       <div className="flex gap-1 mt-2 flex-wrap">
@@ -172,14 +176,19 @@ export default function MatchingPage() {
                     </Link>
                   </div>
                   <div className="shrink-0 flex items-start pt-1">
-                    <Button
-                      size="sm"
-                      variant="primary"
-                      onClick={() => handleMatchRequest(p.name)}
+                    <button
+                      type="button"
+                      aria-label="매칭 요청"
                       disabled={!p.isAvailable}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        handleMatchRequest(p.name);
+                      }}
+                      className="flex items-center justify-center w-11 h-11 rounded-full border border-[var(--color-brand)] text-[var(--color-brand)] hover:bg-[var(--color-forest-soft)] transition-colors shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
                     >
-                      매칭 요청
-                    </Button>
+                      <UserPlus size={18} />
+                    </button>
                   </div>
                 </div>
               </Card>

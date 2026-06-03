@@ -9,9 +9,9 @@ import { chatRooms } from "@/data/mock-chats";
 import { Calendar, CheckCircle, Clock, AlertCircle } from "lucide-react";
 
 const statusConfig = {
-  confirmed: { label: "확정", color: "#31B46E", icon: CheckCircle },
-  pending: { label: "대기중", color: "#FF9800", icon: Clock },
-  cancelled: { label: "취소됨", color: "#EF6253", icon: AlertCircle },
+  confirmed: { label: "확정", color: "#1E8A52", icon: CheckCircle },
+  pending: { label: "대기중", color: "#D98627", icon: Clock },
+  cancelled: { label: "취소됨", color: "#C4421F", icon: AlertCircle },
 };
 
 export default function ChatPage() {
@@ -53,7 +53,7 @@ export default function ChatPage() {
                             </div>
                           </div>
                           <div className="flex items-center gap-1 mt-1">
-                            <Calendar size={11} className="text-[#333] shrink-0" />
+                            <Calendar size={11} className="text-[var(--color-ink-muted)] shrink-0" />
                             <span className="text-[11px] text-kream-gray">
                               {dateLabel} {room.reservationTime}
                             </span>
@@ -83,15 +83,15 @@ export default function ChatPage() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between">
-                      <p className="text-sm font-bold text-[#161512] truncate">{room.gymName}</p>
+                      <p className={`text-sm truncate ${room.unreadCount > 0 ? "font-semibold text-[var(--color-ink)]" : "font-medium text-kream-gray"}`}>{room.gymName}</p>
                       <span className="text-[11px] text-kream-lightgray shrink-0 ml-2">
                         {room.lastMessageTime}
                       </span>
                     </div>
                     <div className="flex items-center justify-between mt-0.5">
-                      <p className="text-[12px] text-kream-gray truncate">{room.lastMessage}</p>
+                      <p className={`text-[12px] truncate ${room.unreadCount > 0 ? "font-semibold text-[var(--color-ink)]" : "text-kream-gray"}`}>{room.lastMessage}</p>
                       {room.unreadCount > 0 && (
-                        <span className="shrink-0 ml-2 w-[18px] h-[18px] bg-[#EF6253] rounded-full flex items-center justify-center">
+                        <span className="shrink-0 ml-2 w-[18px] h-[18px] bg-[#F7633D] rounded-full flex items-center justify-center">
                           <span className="text-white text-[10px] font-bold">{room.unreadCount}</span>
                         </span>
                       )}

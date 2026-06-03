@@ -13,7 +13,8 @@ import ReviewSheet from "@/components/shared/ReviewSheet";
 import { gyms, gymReviews } from "@/data/mock-gyms";
 import { currentUser } from "@/data/mock-user";
 import type { GymReview } from "@/types/gym";
-import { MapPin, Clock, DollarSign, Globe, Phone, Link as LinkIcon, Users, Dumbbell } from "lucide-react";
+import Avatar from "@/components/shared/Avatar";
+import { MapPin, Clock, DollarSign, Globe, Phone, Link as LinkIcon, Users } from "lucide-react";
 
 const countryFlags: Record<string, string> = {
   "한국": "🇰🇷", "일본": "🇯🇵", "브라질": "🇧🇷", "태국": "🇹🇭", "미국": "🇺🇸",
@@ -72,7 +73,7 @@ export default function GymDetailPage() {
             </div>
             <div className="flex items-center gap-1.5">
               <RatingStars rating={gym.rating} size={14} showValue />
-              <span className="text-xs text-kream-gray">({gym.reviewCount})</span>
+              <span className="text-xs text-kream-gray tnum">({gym.reviewCount})</span>
             </div>
           </div>
 
@@ -94,7 +95,7 @@ export default function GymDetailPage() {
                     i < infoRows.length - 1 ? "border-b border-kream-border" : ""
                   }`}
                 >
-                  <row.icon size={16} className="text-[#333] shrink-0 mt-0.5" />
+                  <row.icon size={16} className="text-[var(--color-ink-muted)] shrink-0 mt-0.5" />
                   <div className="flex-1 min-w-0">
                     <p className="text-[11px] text-kream-gray">{row.label}</p>
                     <p className="text-sm font-medium text-[#161512]">{row.value}</p>
@@ -112,9 +113,7 @@ export default function GymDetailPage() {
                 {gym.instructors.map((inst) => (
                   <Card key={inst.name} padding="sm">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#161512] flex items-center justify-center shrink-0">
-                        <Dumbbell size={16} className="text-white" />
-                      </div>
+                      <Avatar name={inst.name} size="md" />
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-bold text-[#161512]">{inst.name}</p>
                         <p className="text-[11px] text-kream-gray">{inst.title}</p>
@@ -168,7 +167,7 @@ export default function GymDetailPage() {
             <h3 className="section-header mb-2">분위기</h3>
             <div className="flex gap-1.5 flex-wrap">
               {gym.atmosphere.map((a) => (
-                <Badge key={a} label={a} variant="solid" />
+                <Badge key={a} label={a} variant="outline" />
               ))}
             </div>
           </div>
@@ -215,7 +214,7 @@ export default function GymDetailPage() {
       </div>
 
       {/* Sticky Bottom */}
-      <div className="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[430px] p-4 bg-white border-t border-[#E0E0E0] z-30">
+      <div className="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[430px] p-4 bg-white border-t border-kream-border z-30">
         <div className="flex gap-2.5">
           <Button
             variant="outline"

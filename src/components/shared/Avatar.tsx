@@ -22,7 +22,7 @@ export default function Avatar({ name, src, size = "md", beltLevel, className }:
   return (
     <div
       className={cn(
-        "rounded-full flex items-center justify-center font-bold text-white bg-kream-lightgray shrink-0",
+        "rounded-full flex items-center justify-center font-bold bg-[var(--color-forest-soft)] shrink-0",
         sizes[size],
         ringColor && "ring-2 ring-offset-1",
         className
@@ -32,7 +32,7 @@ export default function Avatar({ name, src, size = "md", beltLevel, className }:
       {src ? (
         <img src={src} alt={name} className="w-full h-full rounded-full object-cover" />
       ) : (
-        <span className="text-kream-gray">{getInitial(name)}</span>
+        <span className="text-[var(--color-forest)] font-bold">{getInitial(name)}</span>
       )}
     </div>
   );

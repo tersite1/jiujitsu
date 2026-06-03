@@ -57,12 +57,12 @@ export default function OpenMatDetailPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           {om.price === "무료" && (
             <div className="absolute top-3 left-3">
-              <Badge label="무료" color="#31B46E" />
+              <Badge label="무료" color="#1E8A52" />
             </div>
           )}
           {isFull && (
             <div className="absolute top-3 right-3">
-              <Badge label="마감" color="#EF6253" />
+              <Badge label="마감" color="#C4421F" />
             </div>
           )}
           <div className="absolute bottom-4 left-4 right-4">
@@ -76,7 +76,7 @@ export default function OpenMatDetailPage() {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-xs text-kream-gray">참여 현황</span>
-              <span className="text-xs font-bold text-[#161512]">
+              <span className="text-xs font-bold text-[#161512] tnum">
                 {om.registered}/{om.capacity}명
               </span>
             </div>
@@ -85,7 +85,7 @@ export default function OpenMatDetailPage() {
                 className="h-full rounded-full transition-all"
                 style={{
                   width: `${progress}%`,
-                  backgroundColor: progress > 80 ? "#EF6253" : "#31B46E",
+                  backgroundColor: progress > 80 ? "#C4421F" : "#1E8A52",
                 }}
               />
             </div>
@@ -106,7 +106,7 @@ export default function OpenMatDetailPage() {
                   i < infoRows.length - 1 ? "border-b border-kream-border" : ""
                 }`}
               >
-                <row.icon size={16} className="text-[#333] shrink-0 mt-0.5" />
+                <row.icon size={16} className="text-[var(--color-ink-muted)] shrink-0 mt-0.5" />
                 <div className="flex-1 min-w-0">
                   <p className="text-[11px] text-kream-gray">{row.label}</p>
                   <p className="text-sm font-medium text-[#161512] whitespace-pre-line">{row.value}</p>
@@ -128,7 +128,7 @@ export default function OpenMatDetailPage() {
             <h3 className="section-header mb-2">태그</h3>
             <div className="flex gap-1.5 flex-wrap">
               {om.tags.map((t) => (
-                <Badge key={t} label={t} variant="solid" />
+                <Badge key={t} label={t} variant="outline" />
               ))}
             </div>
           </div>
@@ -160,7 +160,7 @@ export default function OpenMatDetailPage() {
       </div>
 
       {/* Sticky Bottom CTA */}
-      <div className="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[430px] p-4 bg-white border-t border-[#E0E0E0] z-30">
+      <div className="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[430px] p-4 bg-white border-t border-kream-border z-30">
         <Button
           size="lg"
           variant={isFull ? "outline" : "primary"}

@@ -14,7 +14,7 @@ import Toast from "@/components/shared/Toast";
 import ReviewSheet from "@/components/shared/ReviewSheet";
 import RatingStars from "@/components/shared/RatingStars";
 import { practitioners } from "@/data/mock-practitioners";
-import { WEIGHT_LABELS } from "@/types/common";
+import { BELT_COLORS, WEIGHT_LABELS } from "@/types/common";
 import { Star } from "lucide-react";
 
 type PartnerReview = { rating: number; content: string; date: string };
@@ -54,7 +54,10 @@ export default function PractitionerDetailPage() {
 
       <div className="px-4 pt-6 pb-28 space-y-5">
         {/* Profile Hero */}
-        <div className="flex flex-col items-center text-center gap-3">
+        <div
+          className="flex flex-col items-center text-center gap-3 belt-edge overflow-hidden rounded-xl bg-white border border-[var(--color-line)] p-4"
+          style={{ ["--belt"]: BELT_COLORS[p.beltLevel] } as React.CSSProperties}
+        >
           <Avatar name={p.name} size="xl" beltLevel={p.beltLevel} />
           <div>
             <h2 className="text-lg font-bold text-kream-black">{p.name}</h2>
