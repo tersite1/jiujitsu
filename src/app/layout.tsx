@@ -3,6 +3,11 @@ import "./globals.css";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000"
+  ),
   title: "오스 (押忍) — 주짓수 매칭 플랫폼",
   description: "스파링 파트너 매칭, 도장 찾기, 세미나 허브",
 };
